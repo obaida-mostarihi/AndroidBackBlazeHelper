@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AndroidLayouts">
+    <shared>
+      <config />
+    </shared>
+  </component>
+  <component name="AndroidLogFilters">
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="loool" />
+    <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="761ecab1-6a24-43d6-8e36-120b17c20dd6" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="device_and_snapshot_combo_box_target[Pixel_2_API_29]" />
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <favorite-branches>
+      <branch-storage>
+        <map>
+          <entry type="REMOTE">
+            <value>
+              <list>
+                <branch-info repo="$PROJECT_DIR$" source="origin/main" />
+              </list>
+            </value>
+          </entry>
+        </map>
+      </branch-storage>
+    </favorite-branches>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
+  </component>
+  <component name="NamedScopeManager">
+    <order>
+      <scope name="Yoron" />
+    </order>
+  </component>
+  <component name="ProjectId" id="1ps2doOPpqq35MrzM0n3VfAJfnD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="Pixel_2_API_29" />
+    <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-03-17T05:21:25.557Z" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="copyright.profiles" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.assembliers.androidbackblazehelper" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AndroidJUnit" factoryName="Android JUnit">
+      <option name="TEST_OBJECT" value="class" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="app" type="AndroidRunConfigurationType" factoryName="Android App" activateToolWindowBeforeRun="false">
+      <module name="BackBlaze_Helper.app" />
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="ALL_USERS" value="false" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="false" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="DEVICE_AND_SNAPSHOT_COMBO_BOX" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="-1" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="DEBUGGER_TYPE" value="Auto" />
+      <Auto>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Auto>
+      <Hybrid>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Hybrid>
+      <Java />
+      <Native>
+        <option name="USE_JAVA_AWARE_DEBUGGER" value="false" />
+        <option name="SHOW_STATIC_VARS" value="true" />
+        <option name="WORKING_DIR" value="" />
+        <option name="TARGET_LOGGING_CHANNELS" value="lldb process:gdb-remote packets" />
+        <option name="SHOW_OPTIMIZED_WARNING" value="true" />
+      </Native>
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+        <option name="STARTUP_NATIVE_MEMORY_PROFILING_ENABLED" value="false" />
+        <option name="NATIVE_MEMORY_SAMPLE_RATE_BYTES" value="2048" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <option name="SEARCH_ACTIVITY_IN_GLOBAL_SCOPE" value="false" />
+      <option name="SKIP_ACTIVITY_VALIDATION" value="false" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="761ecab1-6a24-43d6-8e36-120b17c20dd6" name="Default Changelist" comment="" />
+      <created>1615957566309</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1615957566309</updated>
+    </task>
+    <task id="LOCAL-00001" summary="Uploading Images Done..">
+      <created>1615978128616</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1615978128616</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Uploading Images Done.." />
+    <option name="LAST_COMMIT_MESSAGE" value="Uploading Images Done.." />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="605" y="366" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1615962856659">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="605" y="366" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1615962856659" />
+    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser" timestamp="1615969767195">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1615969767195" />
+    <state x="526" y="433" width="739" height="262" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1615959340533">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="526" y="433" width="739" height="262" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1792.1120@0.0.1792.1120" timestamp="1615959340533" />
+    <state x="546" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1615961179074">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="546" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615961179074" />
+    <state x="612" y="474" key="#com.intellij.refactoring.replaceConstructorWithFactory.ReplaceConstructorWithFactoryDialog" timestamp="1615966269348">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="612" y="474" key="#com.intellij.refactoring.replaceConstructorWithFactory.ReplaceConstructorWithFactoryDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615966269348" />
+    <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1615975820650">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615975820650" />
+    <state x="590" y="423" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1615962782675">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="590" y="423" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1792.1120@0.0.1792.1120" timestamp="1615962782675" />
+    <state x="301" y="143" key="CommitChangelistDialog2" timestamp="1615978128451">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="301" y="143" key="CommitChangelistDialog2/0.0.1792.1120@0.0.1792.1120" timestamp="1615978128451" />
+    <state x="100" y="100" width="1592" height="920" key="DiffContextDialog" timestamp="1615980130468">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="100" y="100" width="1592" height="920" key="DiffContextDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615980130468" />
+    <state x="735" y="461" key="Github.ShareDialog" timestamp="1615978077239">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="735" y="461" key="Github.ShareDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615978077239" />
+    <state width="875" height="276" key="GridCell.Tab.0.bottom" timestamp="1615979805805">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="875" height="276" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1615979805805" />
+    <state width="875" height="276" key="GridCell.Tab.0.center" timestamp="1615979805804">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="875" height="276" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1615979805804" />
+    <state width="875" height="276" key="GridCell.Tab.0.left" timestamp="1615979805804">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="875" height="276" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1615979805804" />
+    <state width="875" height="276" key="GridCell.Tab.0.right" timestamp="1615979805805">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state width="875" height="276" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1615979805805" />
+    <state x="532" y="325" key="MultipleFileMergeDialog" timestamp="1615979621862">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="532" y="325" key="MultipleFileMergeDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615979621862" />
+    <state x="270" y="341" width="1252" height="465" key="RefactorJ.ExtractClass" timestamp="1615966481153">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="270" y="341" width="1252" height="465" key="RefactorJ.ExtractClass/0.0.1792.1120@0.0.1792.1120" timestamp="1615966481153" />
+    <state x="397" y="196" key="SettingsEditor" timestamp="1615962770226">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="397" y="196" key="SettingsEditor/0.0.1792.1120@0.0.1792.1120" timestamp="1615962770226" />
+    <state x="496" y="297" key="Vcs.Push.Dialog.v2" timestamp="1615979979823">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="496" y="297" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1615979979823" />
+    <state x="641" y="298" key="VcsDiffUtil.ChangesDialog" timestamp="1615979868043">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="641" y="298" key="VcsDiffUtil.ChangesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615979868043" />
+    <state x="618" y="352" key="git4idea.merge.GitMergeDialog" timestamp="1615979321067">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="618" y="352" key="git4idea.merge.GitMergeDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615979321067" />
+    <state x="514" y="352" key="git4idea.merge.GitPullDialog" timestamp="1615979790929">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="514" y="352" key="git4idea.merge.GitPullDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615979790929" />
+    <state x="678" y="481" key="git4idea.rebase.GitUnstructuredEditor" timestamp="1615979411440">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="678" y="481" key="git4idea.rebase.GitUnstructuredEditor/0.0.1792.1120@0.0.1792.1120" timestamp="1615979411440" />
+    <state x="629" y="463" key="git4idea.ui.GitStashDialog" timestamp="1615979345276">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="629" y="463" key="git4idea.ui.GitStashDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615979345276" />
+    <state x="680" y="341" key="refactoring.ChangeSignatureDialog" timestamp="1615977450762">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="680" y="341" key="refactoring.ChangeSignatureDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615977450762" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1615970541327">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1615970541327" />
+  </component>
+</project>

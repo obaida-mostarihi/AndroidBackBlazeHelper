@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/BackBlaze_Helper.iml" filepath="$PROJECT_DIR$/.idea/modules/BackBlaze_Helper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AndroidBackBlazeHelper/BackBlaze_Helper.AndroidBackBlazeHelper.iml" filepath="$PROJECT_DIR$/.idea/modules/AndroidBackBlazeHelper/BackBlaze_Helper.AndroidBackBlazeHelper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/BackBlaze_Helper.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/BackBlaze_Helper.app.iml" />
+    </modules>
+  </component>
+</project>
