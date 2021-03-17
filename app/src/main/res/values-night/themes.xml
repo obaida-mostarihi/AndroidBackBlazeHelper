@@ -1,0 +1,25 @@
+<!--
+  ~ Created by Obaida Al Mostarihi  3/17/21 9:33 AM
+  ~ Copyright (c) 2021 . All rights reserved.
+  ~ Licensed under the Apache License, Version 2.0 (the "LICENSE");
+  ~ Last modified:  3/17/21 8:06 AM
+  ~ Contact: Email : obaidaalmostarihi@gmail.com
+  ~ Package: BackBlaze_Helper.app / BackBlaze Helper
+  -->
+
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.BackBlazeHelper" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryVariant">@color/purple_700</item>
+        <item name="colorOnPrimary">@color/black</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/teal_200</item>
+        <item name="colorSecondaryVariant">@color/teal_200</item>
+        <item name="colorOnSecondary">@color/black</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
+    </style>
+</resources>

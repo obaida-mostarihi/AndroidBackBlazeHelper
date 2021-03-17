@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ~ Created by Obaida Al Mostarihi  3/17/21 9:33 AM
+  ~ Copyright (c) 2021 . All rights reserved.
+  ~ Licensed under the Apache License, Version 2.0 (the "LICENSE");
+  ~ Last modified:  3/17/21 8:06 AM
+  ~ Contact: Email : obaidaalmostarihi@gmail.com
+  ~ Package: BackBlaze_Helper.app / BackBlaze Helper
+  -->
+
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+</resources>
