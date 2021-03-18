@@ -100,29 +100,33 @@ To upload multiple files please use the model MultiFile.class here is how..
 ### Uploading Listeners
 To listen to changes while uploading use this method.
 ```java
-  blazeFileUploader.setOnUploadingListener(new UploadListener() {
-                     @Override 
-                     public void onUploadStarted() {
-                         Log.v(TAG , "uploading started");
-                     }
+         
+     blazeFileUploader.setOnUploadingListener(new UploadListener() {
+     
+                    @Override
+                    public void onUploadStarted() {
+                    Log.v(TAG , "uploading started");
 
-                     @Override
-                     public void onUploadConnection(HttpURLConnection uploadConnection
-                     , DataOutputStream uploadWriter) {
-                         Log.v(TAG , "uploading connecting to BackBlaze");
-                         //You can add some headers or get the uploading progress
-                     }
+                    }                         
 
-                     @Override
-                     public void onUploadFinished(String response) {
+                    @Override
+                    public void onUploadProgress(int percentage, long progress, long total) {
+                           Log.v(TAG , "uploading on progress %"+percentage);
+
+                    }
+
+                    @Override
+                    public void onUploadFinished(String response , boolean allFilesUploaded) {
                          Log.v(TAG , "uploading finised " +response);
-                     }
 
-                     @Override
-                     public void onUploadFailed(Exception e) {
+                    }
+
+                    @Override
+                    public void onUploadFailed(Exception e) {
                      //Handle Errors
-                     }
-                 });
+
+                    }
+                });
 ```
 #### I'll be updating this lib and add more futures
                  
