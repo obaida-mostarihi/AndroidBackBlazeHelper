@@ -7,7 +7,7 @@
  * Package: BackBlaze_Helper.AndroidBackBlazeHelper / BackBlaze Helper
  */
 
-package com.assembliers.androidbackblazehelper.models;
+package com.assembliers.androidbackblazehelper.upload_auth;
 
 import org.json.JSONException;
 import org.json.JSONObject;

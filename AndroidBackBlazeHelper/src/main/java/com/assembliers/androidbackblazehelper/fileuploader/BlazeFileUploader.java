@@ -10,13 +10,16 @@
 package com.assembliers.androidbackblazehelper.fileuploader;
 
 import android.content.Context;
+import android.media.Image;
 import android.net.Uri;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.assembliers.androidbackblazehelper.client.BlazeClient;
-import com.assembliers.androidbackblazehelper.interfaces.ClientListener;
-import com.assembliers.androidbackblazehelper.interfaces.UploadListener;
-import com.assembliers.androidbackblazehelper.models.ClientModel;
+import com.assembliers.androidbackblazehelper.client.ClientListener;
+import com.assembliers.androidbackblazehelper.client.ClientModel;
+import com.assembliers.androidbackblazehelper.upload_auth.UploadAuth;
+import com.google.gson.JsonElement;
 
 import org.json.JSONObject;
 
@@ -29,26 +32,37 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Formatter;
+import java.util.concurrent.Callable;
 
-import cz.msebera.android.httpclient.client.ClientProtocolException;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class BlazeFileUploader {
+
+
     private Context context;
     private BlazeClient blazeClient;
     private String bucketId;
     private UploadListener uploadingListener;
     private boolean isAuthed = false;
     private String accountAuthorizationToken, apiUrl;
+    private String contentType = "";
 
+    private ArrayList<MultiFile> files;
 
     //Upload Auth
-    String uploadUrl;
-    String uploadAuthorizationToken;
+    private String uploadUrl;
+    private String uploadAuthorizationToken;
+
+    private boolean isMultiUpload = false;
 
     public BlazeFileUploader(BlazeClient blazeClient, String bucketId) {
         this.context = blazeClient.getContext();
@@ -58,12 +72,56 @@ public class BlazeFileUploader {
     }
 
 
-    public void startUploading(Uri fileUri, String fileName) {
-        InputStream iStream = null;
+    public void startUploadingMultipleFiles(ArrayList<MultiFile> files)  {
 
+        this.files = files;
+        isMultiUpload = true;
+
+
+
+            try {
+            uploadMultiImages(new ArrayList<>());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    private void uploadMultiImages(ArrayList<MultiFile> file) throws IOException {
+        MultiFile fileModel = files.get(file.size());
+        if (!isAuthed) {
+
+
+            getClientData(fileModel.getFileUri(), fileModel.getFileName(),fileModel.getContentType());
+        }else{
+
+
+        InputStream iStream = context.getContentResolver().openInputStream(fileModel.getFileUri());
+        byte[] inputData = getBytes(iStream);
+        uploadFile(fileModel.getFileUri(), fileModel.getFileName(),
+                inputData, fileModel.getContentType(), () -> {
+
+                    file.add(fileModel);
+                    if (file.size() == files.size()) {
+
+
+                        uploadingListener.onUploadFinished("All files uploaded" ,true);
+                    }else{
+                        uploadMultiImages(file);
+                    }
+
+                    return null;
+                });
+
+        }
+    }
+
+
+    public void startUploading(Uri fileUri, String fileName, String contentType) {
+        isMultiUpload = false;
         try {
 
-            iStream = context.getContentResolver().openInputStream(fileUri);
+            InputStream iStream = context.getContentResolver().openInputStream(fileUri);
             byte[] inputData = getBytes(iStream);
             if (uploadingListener != null)
                 uploadingListener.onUploadStarted();
@@ -71,43 +129,143 @@ public class BlazeFileUploader {
 
             if (!isAuthed) {
 
-                blazeClient.setClientListener(new ClientListener() {
-                    @Override
-                    public void onConnectionStarted() {
-
-                    }
-
-                    @Override
-                    public void onRetrievingData(ClientModel data, JSONObject response) {
-
-                        accountAuthorizationToken = data.getAuthorizationToken();
-                        apiUrl = data.getApiUrl();
-                        UploadAuth uploadAuth = new UploadAuth(context, bucketId, accountAuthorizationToken, apiUrl);
-
-                        uploadAuth.getUploadAuthData();
-                        uploadAuth.setUploadAuthListener(uploadAuthModel -> {
-                            uploadUrl = uploadAuthModel.getUploadUrl();
-                            uploadAuthorizationToken = uploadAuthModel.getAuthorizationToken();
-                            isAuthed = true;
-                            startUploading(fileUri, fileName);
-                        });
-
-                    }
-
-                    @Override
-                    public void onFailure(Exception e) {
-                        if (uploadingListener != null)
-                            uploadingListener.onUploadFailed(e);
-                    }
-                });
+                getClientData(fileUri, fileName, contentType);
             } else {
 
-                new UploadTask(inputData, fileName, "image").execute();
+
+                uploadFile(fileUri, fileName, inputData, contentType, null);
+
 
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public void startUploading(Uri fileUri, String fileName) {
+        isMultiUpload = false;
+        try {
+
+            InputStream iStream = context.getContentResolver().openInputStream(fileUri);
+            byte[] inputData = getBytes(iStream);
+            if (uploadingListener != null)
+                uploadingListener.onUploadStarted();
+
+
+            if (!isAuthed) {
+
+                getClientData(fileUri, fileName, contentType);
+            } else {
+
+
+                uploadFile(fileUri, fileName, inputData, "", null);
+
+
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void uploadFile(Uri fileUri, String fileName, byte[] inputData, String contentType, Callable<Void> onFinish) {
+        URL url = null;
+        String path = null;
+        try {
+            url = new URL(uploadUrl);
+            path = url.getPath();
+            path = path.replaceFirst("/", "");
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+
+        String baseUrl = url.getProtocol() + "://" + url.getHost();
+
+
+        UploadInterface uploadInterface = ApiClient.getClient(baseUrl).create(UploadInterface.class);
+
+        ProgressRequestBody requestBody = new ProgressRequestBody(
+                context,
+                new ProgressRequestBody.UploadInfo(fileUri, inputData.length),
+                (progress, total) -> {
+
+
+                    int percentage = (int) ((progress * 100.0f) / total);
+
+                    if (uploadingListener != null)
+                        uploadingListener.onUploadProgress(percentage, progress, total);
+
+                }
+        );
+        requestBody.setContentType(contentType);
+
+// Upload
+        Call<JsonElement> call = uploadInterface.uploadFile(path, requestBody, uploadAuthorizationToken,
+                SHAsum(inputData), fileName);
+        call.enqueue(new Callback<JsonElement>() {
+            @Override
+            public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
+
+                if (uploadingListener != null){
+                    uploadingListener.onUploadFinished(response.toString() , !isMultiUpload);
+
+
+                }
+                if (onFinish != null) {
+                    try {
+                        onFinish.call();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<JsonElement> call, Throwable t) {
+                if (uploadingListener != null)
+                    uploadingListener.onUploadFailed((Exception) t);
+
+            }
+        });
+
+    }
+
+    private void getClientData(Uri fileUri, String fileName, String contentType) {
+
+        blazeClient.setClientListener(new ClientListener() {
+            @Override
+            public void onConnectionStarted() {
+
+            }
+
+            @Override
+            public void onRetrievingData(ClientModel data, JSONObject response) {
+
+                accountAuthorizationToken = data.getAuthorizationToken();
+                apiUrl = data.getApiUrl();
+                UploadAuth uploadAuth = new UploadAuth(context, bucketId, accountAuthorizationToken, apiUrl);
+
+                uploadAuth.getUploadAuthData();
+                uploadAuth.setUploadAuthListener(uploadAuthModel -> {
+                    uploadUrl = uploadAuthModel.getUploadUrl();
+                    uploadAuthorizationToken = uploadAuthModel.getAuthorizationToken();
+                    isAuthed = true;
+                    if(!isMultiUpload)
+                    startUploading(fileUri, fileName, contentType);
+                    else
+                    startUploadingMultipleFiles(files);
+                });
+
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                if (uploadingListener != null)
+                    uploadingListener.onUploadFailed(e);
+            }
+        });
     }
 
 
@@ -116,7 +274,7 @@ public class BlazeFileUploader {
     }
 
 
-    public static String SHAsum(byte[] convertme) {
+    private static String SHAsum(byte[] convertme) {
         MessageDigest md = null;
         try {
             md = MessageDigest.getInstance("SHA-1");
@@ -134,18 +292,6 @@ public class BlazeFileUploader {
         return formatter.toString();
     }
 
-    static public String myInputStreamReader(InputStream in) throws IOException {
-        InputStreamReader reader = new InputStreamReader(in);
-        StringBuilder sb = new StringBuilder();
-        int c = reader.read();
-        while (c != -1) {
-            sb.append((char) c);
-            c = reader.read();
-        }
-        reader.close();
-        return sb.toString();
-    }
-
 
     public byte[] getBytes(InputStream inputStream) throws IOException {
         ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
@@ -157,76 +303,6 @@ public class BlazeFileUploader {
             byteBuffer.write(buffer, 0, len);
         }
         return byteBuffer.toByteArray();
-    }
-
-
-    class UploadTask extends AsyncTask<String, Void, String> {
-        private String contentType;
-        private byte[] fileData;
-        private String fileName;
-        HttpURLConnection uploadConnection;
-        URLConnection urlconnection = null;
-
-        public UploadTask(byte[] fileData, String fileName, String contentType) {
-            this.fileData = fileData;
-            this.fileName = fileName;
-            this.contentType = contentType;
-        }
-
-        @Override
-        protected String doInBackground(String... uri) {
-            String responseString = "null";
-
-            try {
-
-
-                uploadConnection = getUploadConnection(uploadUrl, uploadAuthorizationToken);
-
-
-                DataOutputStream uploadWriter = new DataOutputStream(uploadConnection.getOutputStream());
-                if (uploadingListener != null)
-                    uploadingListener.onUploadConnection(uploadConnection, uploadWriter);
-                uploadWriter.write(fileData);
-
-                responseString = myInputStreamReader(uploadConnection.getInputStream());
-
-
-                uploadConnection.disconnect();
-
-            } catch (ClientProtocolException e) {
-                //TODO Handle problems..
-            } catch (IOException e) {
-                //TODO Handle problems..
-            }
-
-
-            return responseString;
-        }
-
-
-        @Override
-        protected void onPostExecute(String result) {
-            super.onPostExecute(result);
-            //Do anything with response..
-            if (uploadingListener != null)
-                uploadingListener.onUploadFinished(result);
-        }
-
-        private HttpURLConnection getUploadConnection(String uploadUrl, String uploadAuthorizationToken) throws IOException {
-            String contentType = "image"; // The content type of the file
-            String sha1 = SHAsum(fileData); // SHA1 of the file you are uploading
-            HttpURLConnection connection = null;
-            URL url = new URL(uploadUrl);
-            connection = (HttpURLConnection) url.openConnection();
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Authorization", uploadAuthorizationToken);
-            connection.setRequestProperty("Content-Type", contentType);
-            connection.setRequestProperty("X-Bz-File-Name", fileName);
-            connection.setRequestProperty("X-Bz-Content-Sha1", sha1);
-            connection.setDoOutput(true);
-            return connection;
-        }
-
     }
 
 

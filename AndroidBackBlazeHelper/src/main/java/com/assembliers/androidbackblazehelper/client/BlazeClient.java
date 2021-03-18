@@ -17,8 +17,6 @@ import android.os.Build;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.assembliers.androidbackblazehelper.interfaces.ClientListener;
-import com.assembliers.androidbackblazehelper.models.ClientModel;
 
 import org.json.JSONException;
 

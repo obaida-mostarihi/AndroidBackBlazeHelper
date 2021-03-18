@@ -7,9 +7,7 @@
  * Package: BackBlaze_Helper.AndroidBackBlazeHelper / BackBlaze Helper
  */
 
-package com.assembliers.androidbackblazehelper.interfaces;
-
-import com.assembliers.androidbackblazehelper.models.ClientModel;
+package com.assembliers.androidbackblazehelper.client;
 
 import org.json.JSONObject;
 

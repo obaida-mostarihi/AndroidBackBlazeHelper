@@ -7,17 +7,15 @@
  * Package: BackBlaze_Helper.AndroidBackBlazeHelper / BackBlaze Helper
  */
 
-package com.assembliers.androidbackblazehelper.interfaces;
+package com.assembliers.androidbackblazehelper.fileuploader;
 
 import java.io.DataOutputStream;
 import java.net.HttpURLConnection;
-
 public interface UploadListener {
     void onUploadStarted();
 
-    void onUploadConnection(HttpURLConnection uploadConnection, DataOutputStream uploadWriter);
-
-    void onUploadFinished(String response);
+    void onUploadProgress(int percentage, long progress, long total);
+    void onUploadFinished(String response,boolean allFilesUploaded);
 
     void onUploadFailed(Exception e);
 }

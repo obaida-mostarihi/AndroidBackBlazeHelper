@@ -7,26 +7,18 @@
  * Package: BackBlaze_Helper.AndroidBackBlazeHelper / BackBlaze Helper
  */
 
-package com.assembliers.androidbackblazehelper.fileuploader;
+package com.assembliers.androidbackblazehelper.upload_auth;
 
 import android.content.Context;
-import android.os.Build;
-import android.util.Log;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
-import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
-import com.assembliers.androidbackblazehelper.client.BlazeClient;
-import com.assembliers.androidbackblazehelper.interfaces.UploadAuthListener;
-import com.assembliers.androidbackblazehelper.models.UploadAuthModel;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import java.util.Base64;
 import java.util.HashMap;
 import java.util.Map;
 

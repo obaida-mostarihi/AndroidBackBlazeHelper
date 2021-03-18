@@ -7,11 +7,11 @@
  * Package: BackBlaze_Helper.AndroidBackBlazeHelper / BackBlaze Helper
  */
 
-package com.assembliers.androidbackblazehelper.interfaces;
+package com.assembliers.androidbackblazehelper.upload_auth;
 
-import com.assembliers.androidbackblazehelper.models.UploadAuthModel;
+import java.net.MalformedURLException;
 
 public interface UploadAuthListener {
 
-    void onResponseRetrieved(UploadAuthModel uploadAuthModel);
+    void onResponseRetrieved(UploadAuthModel uploadAuthModel) ;
 }

@@ -6,13 +6,102 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="loool" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="uplooooad" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/main" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="761ecab1-6a24-43d6-8e36-120b17c20dd6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+    <list default="true" id="761ecab1-6a24-43d6-8e36-120b17c20dd6" name="Default Changelist" comment="You can choose the type of the file&#10;There is a progress of the upload &#10;You can now upload multiple files">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_google_code_gson_gson_2_8_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_logging_interceptor_4_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_3_14_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okhttp3_okhttp_4_2_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okio_okio_1_17_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_okio_okio_2_2_2.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_converter_gson_2_9_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_squareup_retrofit2_retrofit_2_9_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_annotations_13_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_1_3_50.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_common_1_3_50.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/FileTypes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/fileuploader/ApiClient.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/fileuploader/MultiFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/fileuploader/ProgressRequestBody.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/fileuploader/UploadInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/large_file_upload_url/LargeFileUploadUrl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/large_file_upload_url/LargeFileUploadUrlInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/large_file_upload_url/LargeFileUrlModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/start_large_file/LargeFileInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/start_large_file/LargeFileModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/start_large_file/StartLargeFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/resourceHashesCache.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/jarAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/checksums.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/md5-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/checksums/sha1-checksums.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__cz_msebera_android_httpclient_4_5_8.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_httpclient_android_4_3_5_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_apache_httpcomponents_httpmime_4_5_6.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/AndroidBackBlazeHelper/BackBlaze_Helper.AndroidBackBlazeHelper.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/AndroidBackBlazeHelper/BackBlaze_Helper.AndroidBackBlazeHelper.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/app/BackBlaze_Helper.app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/app/BackBlaze_Helper.app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AndroidBackBlazeHelper/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/client/BlazeClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/client/BlazeClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/fileuploader/BlazeFileUploader.java" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/fileuploader/BlazeFileUploader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/fileuploader/UploadAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/upload_auth/UploadAuth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/interfaces/ClientListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/client/ClientListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/interfaces/UploadAuthListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/upload_auth/UploadAuthListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/interfaces/UploadListener.java" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/fileuploader/UploadListener.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/models/ClientModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/client/ClientModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/models/UploadAuthModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/upload_auth/UploadAuthModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/assembliers/backblazehelper/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/assembliers/backblazehelper/MainActivity.java" afterDir="false" />
+    </list>
+    <list id="e9b50301-f4cd-401a-bc04-f79374682c26" name="Revert &quot;Uploading Images Done..&quot;" comment="Revert &quot;Uploading Images Done..&quot;&#10;&#10;This reverts commit 770f7d16">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copyright/Obaida_Al_Mostarihi.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/copyright/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/yoron.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/scopes/Yoron.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +113,18 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -66,6 +167,7 @@
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2021-03-17T05:21:25.557Z" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="settings.editor.selected.configurable" value="copyright.profiles" />
   </component>
   <component name="RecentsManager">
@@ -157,10 +259,80 @@
       <option name="project" value="LOCAL" />
       <updated>1615978128616</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Uploading Images Done..">
+      <created>1615980147723</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1615980147723</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Revert &quot;Uploading Images Done..&quot;&#10;&#10;This reverts commit 273e65d4">
+      <created>1615980330626</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1615980330626</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Revert &quot;Initial commit&quot;&#10;&#10;This reverts commit b59f501d">
+      <created>1615980333573</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1615980333573</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Revert &quot;Uploading Images Done..&quot;&#10;&#10;This reverts commit 4fa5668b">
+      <created>1615980336004</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1615980336004</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Revert &quot;Initial commit&quot;&#10;&#10;This reverts commit af542786">
+      <created>1615980338502</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1615980338502</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Uploading Images Done..">
+      <created>1615980444771</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1615980444771</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="Revert &quot;Uploading Images Done..&quot;&#10;&#10;This reverts commit 273e65d4" />
+    <MESSAGE value="Revert &quot;Initial commit&quot;&#10;&#10;This reverts commit b59f501d" />
+    <MESSAGE value="Revert &quot;Uploading Images Done..&quot;&#10;&#10;This reverts commit 4fa5668b" />
+    <MESSAGE value="Revert &quot;Initial commit&quot;&#10;&#10;This reverts commit af542786" />
+    <MESSAGE value="Revert &quot;Uploading Images Done..&quot;&#10;&#10;This reverts commit 770f7d16" />
     <MESSAGE value="Uploading Images Done.." />
     <option name="LAST_COMMIT_MESSAGE" value="Uploading Images Done.." />
   </component>
@@ -169,10 +341,10 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="605" y="366" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1615962856659" />
-    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser" timestamp="1615969767195">
+    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser" timestamp="1616062723969">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1615969767195" />
+    <state x="709" y="270" key="#com.intellij.ide.util.MemberChooser/0.0.1792.1120@0.0.1792.1120" timestamp="1616062723969" />
     <state x="526" y="433" width="739" height="262" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1615959340533">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
@@ -185,18 +357,18 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="612" y="474" key="#com.intellij.refactoring.replaceConstructorWithFactory.ReplaceConstructorWithFactoryDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615966269348" />
-    <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1615975820650">
+    <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1616044573278">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615975820650" />
+    <state x="634" y="311" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1616044573278" />
     <state x="590" y="423" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1615962782675">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="590" y="423" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1792.1120@0.0.1792.1120" timestamp="1615962782675" />
-    <state x="301" y="143" key="CommitChangelistDialog2" timestamp="1615978128451">
+    <state x="301" y="143" key="CommitChangelistDialog2" timestamp="1616064691992">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="301" y="143" key="CommitChangelistDialog2/0.0.1792.1120@0.0.1792.1120" timestamp="1615978128451" />
+    <state x="301" y="143" key="CommitChangelistDialog2/0.0.1792.1120@0.0.1792.1120" timestamp="1616064691992" />
     <state x="100" y="100" width="1592" height="920" key="DiffContextDialog" timestamp="1615980130468">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
@@ -205,38 +377,42 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="735" y="461" key="Github.ShareDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615978077239" />
-    <state width="875" height="276" key="GridCell.Tab.0.bottom" timestamp="1615979805805">
+    <state width="1748" height="318" key="GridCell.Tab.0.bottom" timestamp="1616064513056">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="875" height="276" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1615979805805" />
-    <state width="875" height="276" key="GridCell.Tab.0.center" timestamp="1615979805804">
+    <state width="1748" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1616064513056" />
+    <state width="1748" height="318" key="GridCell.Tab.0.center" timestamp="1616064513055">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="875" height="276" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1615979805804" />
-    <state width="875" height="276" key="GridCell.Tab.0.left" timestamp="1615979805804">
+    <state width="1748" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1616064513055" />
+    <state width="1748" height="318" key="GridCell.Tab.0.left" timestamp="1616064513054">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="875" height="276" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1615979805804" />
-    <state width="875" height="276" key="GridCell.Tab.0.right" timestamp="1615979805805">
+    <state width="1748" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1616064513054" />
+    <state width="1748" height="318" key="GridCell.Tab.0.right" timestamp="1616064513055">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="875" height="276" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1615979805805" />
-    <state x="532" y="325" key="MultipleFileMergeDialog" timestamp="1615979621862">
+    <state width="1748" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1616064513055" />
+    <state x="532" y="325" key="MultipleFileMergeDialog" timestamp="1615980215093">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="532" y="325" key="MultipleFileMergeDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615979621862" />
+    <state x="532" y="325" key="MultipleFileMergeDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615980215093" />
     <state x="270" y="341" width="1252" height="465" key="RefactorJ.ExtractClass" timestamp="1615966481153">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="270" y="341" width="1252" height="465" key="RefactorJ.ExtractClass/0.0.1792.1120@0.0.1792.1120" timestamp="1615966481153" />
+    <state x="457" y="275" key="RollbackChangesDialog" timestamp="1615980144172">
+      <screen x="0" y="0" width="1792" height="1120" />
+    </state>
+    <state x="457" y="275" key="RollbackChangesDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615980144172" />
     <state x="397" y="196" key="SettingsEditor" timestamp="1615962770226">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="397" y="196" key="SettingsEditor/0.0.1792.1120@0.0.1792.1120" timestamp="1615962770226" />
-    <state x="496" y="297" key="Vcs.Push.Dialog.v2" timestamp="1615979979823">
+    <state x="496" y="297" key="Vcs.Push.Dialog.v2" timestamp="1615980507720">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="496" y="297" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1615979979823" />
+    <state x="496" y="297" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1615980507720" />
     <state x="641" y="298" key="VcsDiffUtil.ChangesDialog" timestamp="1615979868043">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
@@ -249,10 +425,10 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="514" y="352" key="git4idea.merge.GitPullDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615979790929" />
-    <state x="678" y="481" key="git4idea.rebase.GitUnstructuredEditor" timestamp="1615979411440">
+    <state x="678" y="481" key="git4idea.rebase.GitUnstructuredEditor" timestamp="1615980216248">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="678" y="481" key="git4idea.rebase.GitUnstructuredEditor/0.0.1792.1120@0.0.1792.1120" timestamp="1615979411440" />
+    <state x="678" y="481" key="git4idea.rebase.GitUnstructuredEditor/0.0.1792.1120@0.0.1792.1120" timestamp="1615980216248" />
     <state x="629" y="463" key="git4idea.ui.GitStashDialog" timestamp="1615979345276">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
@@ -261,9 +437,9 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="680" y="341" key="refactoring.ChangeSignatureDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615977450762" />
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1615970541327">
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1616054276674">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1615970541327" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1616054276674" />
   </component>
 </project>
