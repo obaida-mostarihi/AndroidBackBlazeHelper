@@ -9,7 +9,10 @@ Android BackBlaze Helper is an android library that makes backblaze functions ea
 
 
 ## Features
-- uploading images to backblaze bucket
+- Uploading files to backblaze bucket
+- Choosing file type
+- Show upload progress
+- Upload multiple files
 
   i'm working on more futures...
 
@@ -35,7 +38,7 @@ allprojects {
 dependencies {
     ...
 
-    implementation 'com.github.yorondahacker:AndroidBackBlazeHelper:1.0.0'
+    implementation 'com.github.yorondahacker:AndroidBackBlazeHelper:1.0.1'
 
     ...
 }
@@ -55,21 +58,44 @@ BlazeClient client = new BlazeClient(this,applicationKeyId //TODO replace applic
 ,applicationKey); //TODO replace applicationKey with your key
 ```
 
-### Upload Images
+### Upload Files
 
-To upload images create an object of BlazeFileUploader
+To upload files create an object of BlazeFileUploader
 and pass the BlazeClinet object and your bucketId.
 ```java
 BlazeFileUploader blazeFileUploader = 
 new BlazeFileUploader(  client , bucketId); //TODO replace bucketId with your Bucket Id
 ```
 
-Now to start uploading the images use this method and add your image uri and the image name.
+Now to start uploading the files use this method and add your file uri and the file name.
 
 ```java
-blazeFileUploader.startUploading(imageUri, imageName);
+blazeFileUploader.startUploading(fileUri, fileName);
+```
+To change it's type use this line
+```java
+blazeFileUploader.startUploading(fileUri, fileName , contentType); // replace the content type with mime type or choose one from FileTypes.class e.g. FileTypes.IMAGE_TYPE
 ```
 
+To upload multiple files please use the model MultiFile.class here is how..
+
+```java
+ ArrayList<MultiFile> arrayList = new ArrayList<>();
+ 
+ for(int i = 0; i < count; i++){
+                        MultiFile multiFile = new MultiFile();
+                        Uri fileUri = data.getClipData().getItemAt(i).getUri();
+
+                        multiFile.init(fileUri, new File(fileUri.getPath()).getAbsolutePath() , FileTypes.IMAGE_TYPE);
+
+                        arrayList.add(multiFile);
+
+                    }
+                    
+                    //use this method...
+         blazeFileUploader.startUploadingMultipleFiles(arrayList);
+
+```
 
 ### Uploading Listeners
 To listen to changes while uploading use this method.
