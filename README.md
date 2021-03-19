@@ -9,10 +9,11 @@ Android BackBlaze Helper is an android library that makes backblaze functions ea
 
 
 ## Features
-- Uploading files to backblaze bucket
+- Uploading files to BackBlaze bucket
 - Choosing file type
 - Show upload progress
 - Upload multiple files
+- Download files from BackBlaze bucket
 
   i'm working on more futures...
 
@@ -100,7 +101,6 @@ To upload multiple files please use the model MultiFile.class here is how..
 ```
 
 
-### Uploading Listeners
 To listen to changes while uploading use this method.
 
 ```java
@@ -133,6 +133,51 @@ To listen to changes while uploading use this method.
                 });
 ```
 
+### Download Files
+
+To download files create an object of BlazeFileDownloader
+and pass the BlazeClient that you created before.
+
+```java
+BlazeFileDownloader blazeFileDownloader = new BlazeFileDownloader(client);
+```
+
+Now start downloading using this method.
+
+```java
+blazeFileDownloader.startDownloading(bucketName, fileName); //TODO replace bucketName with your bucket name and fileName with your file name
+```
+#### Note:
+if your file name has not file extension call this method before you start uploading:
+```java
+ blazeFileDownloader.setFileExtension();
+```
+
+To listen to the downloading progress.
+
+```java
+  blazeFileDownloader.setDownloadListener(new DownloadListener() {
+                @Override
+                public void onDownloadStart() {
+
+                }
+
+                @Override
+                public void onDownloadProgress(int percentage, long progress, long total) {
+                
+                }
+
+                @Override
+                public void onDownloadFinish() {
+
+                }
+
+                @Override
+                public void onUploadFailed(Exception e) {
+
+                }
+            });
+```
 
 #### I'll be updating this lib and add more futures
                  
