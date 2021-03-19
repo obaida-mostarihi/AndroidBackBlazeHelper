@@ -22,8 +22,8 @@ import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import okio.BufferedSink;
 
-public class ProgressRequestBody extends RequestBody {
-    private static final String LOG_TAG = ProgressRequestBody.class.getSimpleName();
+public class UploadProgressRequestBody extends RequestBody {
+    private static final String LOG_TAG = UploadProgressRequestBody.class.getSimpleName();
 
     private String contentType ="application/octet-stream";
 
@@ -50,7 +50,7 @@ public class ProgressRequestBody extends RequestBody {
 
     private static final int UPLOAD_PROGRESS_BUFFER_SIZE = 8192;
 
-    public ProgressRequestBody(Context context, UploadInfo uploadInfo, ProgressCallback listener) {
+    public UploadProgressRequestBody(Context context, UploadInfo uploadInfo, ProgressCallback listener) {
         mContextRef = new WeakReference<>(context);
         mUploadInfo =  uploadInfo;
         mListener = listener;

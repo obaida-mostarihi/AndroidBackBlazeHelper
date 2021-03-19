@@ -9,10 +9,12 @@
 
 package com.assembliers.androidbackblazehelper.fileuploader;
 
+import com.assembliers.androidbackblazehelper.upload_models.UploadResponse;
 import com.google.gson.JsonElement;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.Header;
@@ -24,7 +26,7 @@ import retrofit2.http.Url;
 
 public interface UploadInterface {
     @POST
-    Call<JsonElement> uploadFile(@Url String url, @Body RequestBody file, @Header("Authorization") String authorization
+    Call<UploadResponse> uploadFile(@Url String url, @Body RequestBody file, @Header("Authorization") String authorization
             , @Header("X-Bz-Content-Sha1") String sha1, @Header("X-Bz-File-Name") String fileName );
 
 }

@@ -10,31 +10,24 @@
 package com.assembliers.androidbackblazehelper.fileuploader;
 
 import android.content.Context;
-import android.media.Image;
 import android.net.Uri;
-import android.os.AsyncTask;
-import android.util.Log;
 
 import com.assembliers.androidbackblazehelper.client.BlazeClient;
 import com.assembliers.androidbackblazehelper.client.ClientListener;
 import com.assembliers.androidbackblazehelper.client.ClientModel;
 import com.assembliers.androidbackblazehelper.upload_auth.UploadAuth;
-import com.google.gson.JsonElement;
+import com.assembliers.androidbackblazehelper.upload_models.UploadResponse;
 
 import org.json.JSONObject;
 
 
 import java.io.ByteArrayOutputStream;
-import java.io.DataOutputStream;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
@@ -104,8 +97,9 @@ public class BlazeFileUploader {
                     file.add(fileModel);
                     if (file.size() == files.size()) {
 
+                        UploadResponse uploadResponse = new UploadResponse();
 
-                        uploadingListener.onUploadFinished("All files uploaded" ,true);
+                        uploadingListener.onUploadFinished(uploadResponse ,true);
                     }else{
                         uploadMultiImages(file);
                     }
@@ -185,9 +179,9 @@ public class BlazeFileUploader {
 
         UploadInterface uploadInterface = ApiClient.getClient(baseUrl).create(UploadInterface.class);
 
-        ProgressRequestBody requestBody = new ProgressRequestBody(
+        UploadProgressRequestBody requestBody = new UploadProgressRequestBody(
                 context,
-                new ProgressRequestBody.UploadInfo(fileUri, inputData.length),
+                new UploadProgressRequestBody.UploadInfo(fileUri, inputData.length),
                 (progress, total) -> {
 
 
@@ -201,14 +195,15 @@ public class BlazeFileUploader {
         requestBody.setContentType(contentType);
 
 // Upload
-        Call<JsonElement> call = uploadInterface.uploadFile(path, requestBody, uploadAuthorizationToken,
+        Call<UploadResponse> call = uploadInterface.uploadFile(path, requestBody, uploadAuthorizationToken,
                 SHAsum(inputData), fileName);
-        call.enqueue(new Callback<JsonElement>() {
+        call.enqueue(new Callback<UploadResponse>() {
             @Override
-            public void onResponse(Call<JsonElement> call, Response<JsonElement> response) {
+            public void onResponse(Call<UploadResponse> call, Response<UploadResponse> response) {
+
 
                 if (uploadingListener != null){
-                    uploadingListener.onUploadFinished(response.toString() , !isMultiUpload);
+                    uploadingListener.onUploadFinished(response.body() , !isMultiUpload);
 
 
                 }
@@ -223,7 +218,7 @@ public class BlazeFileUploader {
             }
 
             @Override
-            public void onFailure(Call<JsonElement> call, Throwable t) {
+            public void onFailure(Call<UploadResponse> call, Throwable t) {
                 if (uploadingListener != null)
                     uploadingListener.onUploadFailed((Exception) t);
 

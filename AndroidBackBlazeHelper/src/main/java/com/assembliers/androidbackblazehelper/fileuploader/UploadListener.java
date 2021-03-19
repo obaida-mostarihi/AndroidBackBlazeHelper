@@ -9,13 +9,13 @@
 
 package com.assembliers.androidbackblazehelper.fileuploader;
 
-import java.io.DataOutputStream;
-import java.net.HttpURLConnection;
+import com.assembliers.androidbackblazehelper.upload_models.UploadResponse;
+
 public interface UploadListener {
     void onUploadStarted();
 
     void onUploadProgress(int percentage, long progress, long total);
-    void onUploadFinished(String response,boolean allFilesUploaded);
+    void onUploadFinished(UploadResponse response, boolean allFilesUploaded);
 
     void onUploadFailed(Exception e);
 }
