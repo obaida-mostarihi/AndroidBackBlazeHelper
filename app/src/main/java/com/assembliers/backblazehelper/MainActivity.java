@@ -70,6 +70,11 @@ public class MainActivity extends AppCompatActivity {
                 public void onDownloadFinish() {
 
                 }
+
+                @Override
+                public void onUploadFailed(Exception e) {
+
+                }
             });
         } else {
             requestPermission();

@@ -43,7 +43,7 @@ public class BlazeFileDownloader {
     private String bucketName = "";
     private String fileName = "";
     private int totalFileSize;
-    private String fileExtension="jpg";
+    private String fileExtension="";
     BlazeFileDownloader.downloadFileTask downloadFileTask;
 
     private DownloadListener downloadListener;
@@ -61,6 +61,9 @@ public class BlazeFileDownloader {
 
     }
 
+    public void setFileExtension(String fileExtension) {
+        this.fileExtension = fileExtension;
+    }
 
     public void startDownloading(String bucketName, String fileName) {
 
@@ -99,7 +102,8 @@ public class BlazeFileDownloader {
 
                 @Override
                 public void onFailure(Exception e) {
-
+                    if(downloadListener!=null)
+                        downloadListener.onUploadFailed(e);
                 }
             });
 
@@ -152,7 +156,8 @@ public class BlazeFileDownloader {
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-
+                if(downloadListener!=null)
+                    downloadListener.onUploadFailed((Exception) t);
             }
         });
 
@@ -206,6 +211,8 @@ public class BlazeFileDownloader {
             if (progress[0].first == -1) {
                 Log.v("Downloading" , "Progress failed");
 
+                if(downloadListener!=null)
+                    downloadListener.onUploadFailed(new Exception("Progress failed"));
             }
 
         }
@@ -222,7 +229,7 @@ public class BlazeFileDownloader {
         private void saveToDisk(ResponseBody body) {
             try {
 
-                File destinationFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName);
+                File destinationFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName+fileExtension);
 
                 InputStream inputStream = null;
                 OutputStream outputStream = null;
@@ -256,6 +263,8 @@ public class BlazeFileDownloader {
                     Pair<Integer, Long> pairs = new Pair<>(-1, Long.valueOf(-1));
                     downloadFileTask.doProgress(pairs);
                     Log.d(TAG, "Failed to save the file!");
+                    if(downloadListener!=null)
+                        downloadListener.onUploadFailed(new Exception("Failed to save the file!"));
                     return;
                 } finally {
                     if (inputStream != null) inputStream.close();
@@ -264,6 +273,8 @@ public class BlazeFileDownloader {
             } catch (IOException e) {
                 e.printStackTrace();
                 Log.d(TAG, "Failed to save the file!");
+                if(downloadListener!=null)
+                    downloadListener.onUploadFailed(new Exception("Failed to save the file!"));
                 return;
             }
         }

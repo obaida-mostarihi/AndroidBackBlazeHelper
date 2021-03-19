@@ -14,5 +14,7 @@ public interface DownloadListener {
     void onDownloadStart();
     void onDownloadProgress(int percentage, long progress, long total);
     void onDownloadFinish();
+    void onUploadFailed(Exception e);
+
 
 }
