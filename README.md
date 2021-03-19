@@ -73,6 +73,7 @@ Now to start uploading the files use this method and add your file uri and the f
 blazeFileUploader.startUploading(fileUri, fileName);
 ```
 To change it's type use this line
+
 ```java
 blazeFileUploader.startUploading(fileUri, fileName , contentType); // replace the content type with mime type or choose one from FileTypes.class e.g. FileTypes.IMAGE_TYPE
 ```
@@ -81,9 +82,10 @@ To upload multiple files please use the model MultiFile.class here is how..
 
 ```java
  ArrayList<MultiFile> arrayList = new ArrayList<>();
- 
+ MultiFile multiFile = new MultiFile();
+
  for(int i = 0; i < count; i++){
-                        MultiFile multiFile = new MultiFile();
+ 
                         Uri fileUri = data.getClipData().getItemAt(i).getUri();
 
                         multiFile.init(fileUri, new File(fileUri.getPath()).getAbsolutePath() , FileTypes.IMAGE_TYPE);
@@ -97,8 +99,10 @@ To upload multiple files please use the model MultiFile.class here is how..
 
 ```
 
+
 ### Uploading Listeners
 To listen to changes while uploading use this method.
+
 ```java
          
      blazeFileUploader.setOnUploadingListener(new UploadListener() {
@@ -128,5 +132,7 @@ To listen to changes while uploading use this method.
                     }
                 });
 ```
+
+
 #### I'll be updating this lib and add more futures
                  
