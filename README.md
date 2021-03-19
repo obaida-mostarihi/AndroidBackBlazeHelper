@@ -150,7 +150,7 @@ blazeFileDownloader.startDownloading(bucketName, fileName); //TODO replace bucke
 #### Note:
 if your file name has no file extension call this method before you start uploading:
 ```java
- blazeFileDownloader.setFileExtension();
+ blazeFileDownloader.setFileExtension(".jpg");
 ```
 
 To listen to the downloading progress.
