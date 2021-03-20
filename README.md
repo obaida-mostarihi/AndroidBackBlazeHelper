@@ -147,6 +147,16 @@ Now start downloading using this method.
 ```java
 blazeFileDownloader.startDownloading(bucketName, fileName); //TODO replace bucketName with your bucket name and fileName with your file name
 ```
+
+To download multiple files use the model MultiDownload
+
+```java
+  ArrayList<MultiDownload> arrayList = new ArrayList<>();
+            arrayList.add(new MultiDownload("Beavis-1.png"));
+ blazeFileDownloader.startDownloadingMultipleFiles(bucketName, arrayList);
+
+```
+
 #### Note:
 if your file name has no file extension call this method before you start uploading:
 ```java
