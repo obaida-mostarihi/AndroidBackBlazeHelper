@@ -6,7 +6,7 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="uplooooad" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="whynull" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
   </component>
   <component name="BranchesTreeState">
@@ -35,7 +35,7 @@
     </select>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="761ecab1-6a24-43d6-8e36-120b17c20dd6" name="Default Changelist" comment="Downloading multiple files added">
+    <list default="true" id="761ecab1-6a24-43d6-8e36-120b17c20dd6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/fileHashes/fileHashes.bin" afterDir="false" />
@@ -47,10 +47,12 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.5/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/client/BlazeClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/client/BlazeClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/fileuploader/ApiClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/fileuploader/ApiClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/fileuploader/BlazeFileUploader.java" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/fileuploader/BlazeFileUploader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/fileuploader/MultiFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/fileuploader/MultiFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/fileuploader/UploadProgressRequestBody.java" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/fileuploader/UploadProgressRequestBody.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/upload_auth/UploadAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/AndroidBackBlazeHelper/src/main/java/com/assembliers/androidbackblazehelper/upload_auth/UploadAuth.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/assembliers/backblazehelper/MainActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/assembliers/backblazehelper/MainActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_main.xml" afterDir="false" />
     </list>
     <list id="e9b50301-f4cd-401a-bc04-f79374682c26" name="Revert &quot;Uploading Images Done..&quot;" comment="Revert &quot;Uploading Images Done..&quot;&#10;&#10;This reverts commit 770f7d16">
       <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
@@ -289,7 +291,14 @@
       <option name="project" value="LOCAL" />
       <updated>1616223481836</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="uploading supports byte[]">
+      <created>1616227700164</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1616227700164</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -326,7 +335,8 @@
     <MESSAGE value="You can choose the type of the file&#10;There is a progress of the upload &#10;You can now upload multiple files" />
     <MESSAGE value="Downloading files added" />
     <MESSAGE value="Downloading multiple files added" />
-    <option name="LAST_COMMIT_MESSAGE" value="Downloading multiple files added" />
+    <MESSAGE value="uploading supports byte[]" />
+    <option name="LAST_COMMIT_MESSAGE" value="uploading supports byte[]" />
   </component>
   <component name="WindowStateProjectService">
     <state x="605" y="366" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1615962856659">
@@ -365,10 +375,10 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="484" y="319" key="AndroidCreateResourceFileDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1616078362924" />
-    <state x="301" y="143" key="CommitChangelistDialog2" timestamp="1616227271948">
+    <state x="301" y="143" key="CommitChangelistDialog2" timestamp="1616227699866">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="301" y="143" key="CommitChangelistDialog2/0.0.1792.1120@0.0.1792.1120" timestamp="1616227271948" />
+    <state x="301" y="143" key="CommitChangelistDialog2/0.0.1792.1120@0.0.1792.1120" timestamp="1616227699866" />
     <state x="100" y="100" width="1592" height="920" key="DiffContextDialog" timestamp="1615980130468">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
@@ -377,22 +387,22 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="735" y="461" key="Github.ShareDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1615978077239" />
-    <state width="1748" height="276" key="GridCell.Tab.0.bottom" timestamp="1616227275577">
+    <state width="1748" height="318" key="GridCell.Tab.0.bottom" timestamp="1616233619181">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1748" height="276" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1616227275577" />
-    <state width="1748" height="276" key="GridCell.Tab.0.center" timestamp="1616227275576">
+    <state width="1748" height="318" key="GridCell.Tab.0.bottom/0.0.1792.1120@0.0.1792.1120" timestamp="1616233619181" />
+    <state width="1748" height="318" key="GridCell.Tab.0.center" timestamp="1616233619179">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1748" height="276" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1616227275576" />
-    <state width="1748" height="276" key="GridCell.Tab.0.left" timestamp="1616227275575">
+    <state width="1748" height="318" key="GridCell.Tab.0.center/0.0.1792.1120@0.0.1792.1120" timestamp="1616233619179" />
+    <state width="1748" height="318" key="GridCell.Tab.0.left" timestamp="1616233619178">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1748" height="276" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1616227275575" />
-    <state width="1748" height="276" key="GridCell.Tab.0.right" timestamp="1616227275576">
+    <state width="1748" height="318" key="GridCell.Tab.0.left/0.0.1792.1120@0.0.1792.1120" timestamp="1616233619178" />
+    <state width="1748" height="318" key="GridCell.Tab.0.right" timestamp="1616233619180">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state width="1748" height="276" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1616227275576" />
+    <state width="1748" height="318" key="GridCell.Tab.0.right/0.0.1792.1120@0.0.1792.1120" timestamp="1616233619180" />
     <state x="532" y="325" key="MultipleFileMergeDialog" timestamp="1615980215093">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
@@ -409,10 +419,10 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="397" y="196" key="SettingsEditor/0.0.1792.1120@0.0.1792.1120" timestamp="1616066134428" />
-    <state x="496" y="297" key="Vcs.Push.Dialog.v2" timestamp="1616223491455">
+    <state x="496" y="297" key="Vcs.Push.Dialog.v2" timestamp="1616227702518">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="496" y="297" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1616223491455" />
+    <state x="496" y="297" key="Vcs.Push.Dialog.v2/0.0.1792.1120@0.0.1792.1120" timestamp="1616227702518" />
     <state x="641" y="298" key="VcsDiffUtil.ChangesDialog" timestamp="1615979868043">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
@@ -437,9 +447,9 @@
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
     <state x="680" y="341" key="refactoring.ChangeSignatureDialog/0.0.1792.1120@0.0.1792.1120" timestamp="1616129830834" />
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1616054276674">
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup" timestamp="1616231890754">
       <screen x="0" y="0" width="1792" height="1120" />
     </state>
-    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1616054276674" />
+    <state x="561" y="251" width="670" height="676" key="search.everywhere.popup/0.0.1792.1120@0.0.1792.1120" timestamp="1616231890754" />
   </component>
 </project>

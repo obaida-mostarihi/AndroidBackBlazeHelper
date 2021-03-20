@@ -21,6 +21,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.FileUtils;
 import android.util.Log;
+import android.view.View;
 
 import com.assembliers.androidbackblazehelper.FileTypes;
 import com.assembliers.androidbackblazehelper.client.BlazeClient;
@@ -43,6 +44,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     ArrayList<String> files = new ArrayList<>();
+    BlazeClient client;
     private static final int REQUEST_EXTERNAL_STORAGE = 1;
     private static String[] PERMISSIONS_STORAGE = {
             Manifest.permission.READ_EXTERNAL_STORAGE,
@@ -95,25 +97,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED ||ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)
-                != PackageManager.PERMISSION_GRANTED ){
-            ActivityCompat.requestPermissions(
-                    this,
-                    PERMISSIONS_STORAGE,
-                    REQUEST_EXTERNAL_STORAGE
-            );
-        }else{
-            Intent intent ;
-            intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-            intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
 
-            intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
-            intent.setType("image/*");
-            intent.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(Intent.createChooser(intent,"Select Picture"), 1);
-        }
     }
 
 
@@ -151,12 +135,11 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         ArrayList<MultiFile> arrayList = new ArrayList<>();
-        BlazeClient client = new BlazeClient(this, "d3919b687db0", "00051f10b14931869e7380c24dd8acf5cb21db8fa3");
-        BlazeFileUploader blazeFileUploader =
-                new BlazeFileUploader(client, "1df369d1b94b3698778d0b10");
+
 
         if (requestCode == 1) {
-
+            BlazeFileUploader blazeFileUploader =
+                    new BlazeFileUploader(client, "");
             if (resultCode == Activity.RESULT_OK && data != null) {
                 if (data.getClipData() != null) {
                     int count = data.getClipData().getItemCount(); //evaluate the count before the for loop --- otherwise, the count is evaluated every loop.
@@ -219,7 +202,6 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onUploadFinished(UploadResponse response, boolean allFilesUploaded) {
-                        Log.v("uplooooad", response + "    " + allFilesUploaded);
 
                     }
 
@@ -242,7 +224,7 @@ public class MainActivity extends AppCompatActivity {
             case 4:
                 if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
 
-                    BlazeClient client = new BlazeClient(this, "d3919b687db0", "000c9a1d6d8ccd1889f38704c8cd240ec707fc274d");
+                    BlazeClient client = new BlazeClient(this, "", "KO6fwwhA");
 
                     BlazeFileDownloader blazeFileDownloader = new BlazeFileDownloader(client);
                     blazeFileDownloader.startDownloading("hkjhkjloijhk", "Beavis-1.png");
@@ -255,4 +237,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void gallery(View view) {
+        if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED ||ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED ){
+            ActivityCompat.requestPermissions(
+                    this,
+                    PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE
+            );
+        }else{
+            Intent intent ;
+            intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+            intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+
+            intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
+            intent.setType("image/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(Intent.createChooser(intent,"Select Picture"), 1);
+        }
+    }
 }

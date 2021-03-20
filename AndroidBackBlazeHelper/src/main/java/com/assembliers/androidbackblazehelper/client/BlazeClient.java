@@ -13,6 +13,7 @@ package com.assembliers.androidbackblazehelper.client;
 import android.content.Context;
 
 import android.os.Build;
+import android.util.Log;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
@@ -64,7 +65,6 @@ public class BlazeClient {
                 response -> {
                     try {
                         ClientModel clientModel = new ClientModel(response);
-
 
                         if (clientListener != null)
                             clientListener.onRetrievingData(clientModel , response);

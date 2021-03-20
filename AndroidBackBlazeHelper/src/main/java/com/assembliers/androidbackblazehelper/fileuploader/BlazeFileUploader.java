@@ -11,6 +11,7 @@ package com.assembliers.androidbackblazehelper.fileuploader;
 
 import android.content.Context;
 import android.net.Uri;
+import android.util.Log;
 
 import com.assembliers.androidbackblazehelper.client.BlazeClient;
 import com.assembliers.androidbackblazehelper.client.ClientListener;
@@ -61,6 +62,7 @@ public class BlazeFileUploader {
         this.context = blazeClient.getContext();
         this.blazeClient = blazeClient;
         this.bucketId = bucketId;
+        isAuthed = false;
 
     }
 
@@ -264,6 +266,7 @@ public class BlazeFileUploader {
 
                 if (uploadingListener != null) {
                     uploadingListener.onUploadFinished(response.body(), !isMultiUpload);
+                    call.cancel();
 
 
                 }
@@ -320,12 +323,15 @@ public class BlazeFileUploader {
         );
         requestBody.setContentType(contentType);
 
+
 // Upload
         Call<UploadResponse> call = uploadInterface.uploadFile(path, requestBody, uploadAuthorizationToken,
                 SHAsum(fileBytes), fileName);
         call.enqueue(new Callback<UploadResponse>() {
             @Override
             public void onResponse(Call<UploadResponse> call, Response<UploadResponse> response) {
+                Log.v("whynull" , response.body().toString());
+
 
 
                 if (uploadingListener != null) {
@@ -364,12 +370,13 @@ public class BlazeFileUploader {
             @Override
             public void onRetrievingData(ClientModel data, JSONObject response) {
 
+                Log.v("whynull" , response.toString());
                 accountAuthorizationToken = data.getAuthorizationToken();
                 apiUrl = data.getApiUrl();
                 UploadAuth uploadAuth = new UploadAuth(context, bucketId, accountAuthorizationToken, apiUrl);
-
                 uploadAuth.getUploadAuthData();
                 uploadAuth.setUploadAuthListener(uploadAuthModel -> {
+
                     uploadUrl = uploadAuthModel.getUploadUrl();
                     uploadAuthorizationToken = uploadAuthModel.getAuthorizationToken();
                     isAuthed = true;
