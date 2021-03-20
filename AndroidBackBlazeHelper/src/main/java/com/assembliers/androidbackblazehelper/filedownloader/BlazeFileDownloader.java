@@ -9,13 +9,10 @@
 
 package com.assembliers.androidbackblazehelper.filedownloader;
 
-import android.content.ContentResolver;
 import android.os.AsyncTask;
 import android.os.Environment;
 import android.util.Log;
 import android.util.Pair;
-import android.webkit.MimeTypeMap;
-import android.widget.Toast;
 
 import com.assembliers.androidbackblazehelper.client.BlazeClient;
 import com.assembliers.androidbackblazehelper.client.ClientListener;
@@ -28,6 +25,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 
 import okhttp3.OkHttpClient;
 import okhttp3.ResponseBody;
@@ -43,7 +41,7 @@ public class BlazeFileDownloader {
     private String bucketName = "";
     private String fileName = "";
     private int totalFileSize;
-    private String fileExtension="";
+    private String fileExtension = "";
     BlazeFileDownloader.downloadFileTask downloadFileTask;
 
     private DownloadListener downloadListener;
@@ -54,32 +52,64 @@ public class BlazeFileDownloader {
     private String authorizationToken = "";
     private String downloadUrl = "";
 
+
     private boolean isAuth = false;
+
+
+    //Multiple download
+    private boolean isMultiDownload = false;
+    private ArrayList<MultiDownload> files;
+    private MultiDownload multiDownload;
+    private ArrayList<MultiDownload> downloadedFiles;
+
 
     public BlazeFileDownloader(BlazeClient blazeClient) {
         this.blazeClient = blazeClient;
 
+        downloadedFiles  = new ArrayList<>();
     }
 
-    public void setFileExtension(String fileExtension) {
-        this.fileExtension = fileExtension;
-    }
-
-    public void startDownloading(String bucketName, String fileName) {
-
-        if(downloadListener!=null)
-            downloadListener.onDownloadStart();
 
 
+    public void startDownloadingMultipleFiles(String bucketName,ArrayList<MultiDownload> files) {
+
+        isMultiDownload = true;
+
+        this.files = files;
         this.bucketName = bucketName;
-        this.fileName = fileName;
+        checkIfDownloadAuthed();
+
+
+    }
+
+
+
+    private void downloadMultipleFiles(){
+
+        MultiDownload multiDownload = files.get(downloadedFiles.size());
+
+
+        fileName = multiDownload.getFileName();
+
+        fileExtension = multiDownload.getFileExtension();
+
+        initDownload();
 
 
 
 
 
-        if (!isAuth) {
+    }
 
+    /**
+     *                   <p>
+     *                   check if the user have been authed if not
+     *                   get a new key and the download url
+     *                   then start downloading
+     */
+    private void checkIfDownloadAuthed() {
+
+        if(!isAuth){
             blazeClient.setClientListener(new ClientListener() {
                 @Override
                 public void onConnectionStarted() {
@@ -93,51 +123,77 @@ public class BlazeFileDownloader {
                     authorizationToken = data.getAuthorizationToken();
                     downloadUrl = data.getDownloadUrl();
 
-                    startDownloading(bucketName,fileName);
+                    checkIfDownloadAuthed();
                     isAuth = true;
-
 
 
                 }
 
                 @Override
                 public void onFailure(Exception e) {
-                    if(downloadListener!=null)
+                    if (downloadListener != null)
                         downloadListener.onUploadFailed(e);
                 }
             });
 
+        }else{
 
-        } else {
-
-            initDownload();
-
-            //downloadFile(bucketName, fileName);
+            if(!isMultiDownload)
+                initDownload();
+            else
+                downloadMultipleFiles();
 
 
         }
 
+    }
+
+
+    /**
+     * @param bucketName the bucket of the location of the file name
+     * @param fileName   the name of the file in the storage
+     */
+    public void startDownloading(String bucketName, String fileName) {
+        isMultiDownload = false;
+
+
+        if (downloadListener != null)
+            downloadListener.onDownloadStart();
+
+
+        this.bucketName = bucketName;
+        this.fileName = fileName;
+
+
+        checkIfDownloadAuthed();
+
 
     }
 
-//    private void downloadFile(String bucketName, String fileName) {
-//
-//
-//    }
+
+    /**
+     * @param fileExtension here should be the file extension e.g. jpg , png  , zip..etc
+     */
+    public void setFileExtension(String fileExtension) {
+        this.fileExtension = fileExtension;
+    }
 
 
-    public void setDownloadListener(DownloadListener downloadListener){
+    public void setDownloadListener(DownloadListener downloadListener) {
         this.downloadListener = downloadListener;
     }
 
-    private void initDownload(){
+
+    /**
+     * Get the file response from the storage and start an AsyncTask
+     */
+    private void initDownload() {
 
 
+        DownloadInterface downloadService = createService(DownloadInterface.class, downloadUrl + "/");
 
-        DownloadInterface downloadService = createService(DownloadInterface.class, downloadUrl+"/");
 
-
-        Call<ResponseBody> request = downloadService.downloadFile("file/" + bucketName + "/" + fileName,authorizationToken);
+        Call<ResponseBody> request = downloadService.downloadFile("file/" + bucketName + "/" + fileName, authorizationToken);
         request.enqueue(new Callback<ResponseBody>() {
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
@@ -156,17 +212,18 @@ public class BlazeFileDownloader {
 
             @Override
             public void onFailure(Call<ResponseBody> call, Throwable t) {
-                if(downloadListener!=null)
+                if (downloadListener != null)
                     downloadListener.onUploadFailed((Exception) t);
             }
         });
 
 
-
     }
 
 
-    private  <T> T createService(Class<T> serviceClass, String baseUrl) {
+
+    //Create a retrofit service
+    private <T> T createService(Class<T> serviceClass, String baseUrl) {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(baseUrl)
                 .client(new OkHttpClient.Builder().build())
@@ -174,6 +231,11 @@ public class BlazeFileDownloader {
         return retrofit.create(serviceClass);
     }
 
+
+    /**
+     * This AsyncTask will convert the response body to a file and save it with the same name
+     * @apiNote Note: please set a file extension if the name of the file has no extension using the method setFileExtension
+     */
     private class downloadFileTask extends AsyncTask<ResponseBody, Pair<Integer, Long>, String> {
         long fileSize;
         int progress = 0;
@@ -196,6 +258,16 @@ public class BlazeFileDownloader {
 
 
             if (progress[0].first == 100) {
+
+                if(isMultiDownload) {
+                    downloadedFiles.add(multiDownload);
+                    if (downloadedFiles.size() == files.size()) {
+
+                    }else{
+                        downloadMultipleFiles();
+
+                    }
+                }
                 if (downloadListener != null)
                     downloadListener.onDownloadFinish();
             }
@@ -203,15 +275,15 @@ public class BlazeFileDownloader {
             if (progress[0].second > 0) {
                 int currentProgress = (int) ((double) progress[0].first / (double) progress[0].second * 100);
 
-                if(downloadListener!=null)
-                    downloadListener.onDownloadProgress(currentProgress,(long)this.progress,(long)fileSize);
+                if (downloadListener != null)
+                    downloadListener.onDownloadProgress(currentProgress, (long) this.progress, (long) fileSize);
 
             }
 
             if (progress[0].first == -1) {
-                Log.v("Downloading" , "Progress failed");
+                Log.v("Downloading", "Progress failed");
 
-                if(downloadListener!=null)
+                if (downloadListener != null)
                     downloadListener.onUploadFailed(new Exception("Progress failed"));
             }
 
@@ -229,7 +301,7 @@ public class BlazeFileDownloader {
         private void saveToDisk(ResponseBody body) {
             try {
 
-                File destinationFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName+fileExtension);
+                File destinationFile = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), fileName + fileExtension);
 
                 InputStream inputStream = null;
                 OutputStream outputStream = null;
@@ -249,7 +321,6 @@ public class BlazeFileDownloader {
                         downloadFileTask.doProgress(pairs);
 
 
-
                     }
 
                     outputStream.flush();
@@ -263,7 +334,7 @@ public class BlazeFileDownloader {
                     Pair<Integer, Long> pairs = new Pair<>(-1, Long.valueOf(-1));
                     downloadFileTask.doProgress(pairs);
                     Log.d(TAG, "Failed to save the file!");
-                    if(downloadListener!=null)
+                    if (downloadListener != null)
                         downloadListener.onUploadFailed(new Exception("Failed to save the file!"));
                     return;
                 } finally {
@@ -273,13 +344,12 @@ public class BlazeFileDownloader {
             } catch (IOException e) {
                 e.printStackTrace();
                 Log.d(TAG, "Failed to save the file!");
-                if(downloadListener!=null)
+                if (downloadListener != null)
                     downloadListener.onUploadFailed(new Exception("Failed to save the file!"));
                 return;
             }
         }
     }
-
 
 
 }//Class

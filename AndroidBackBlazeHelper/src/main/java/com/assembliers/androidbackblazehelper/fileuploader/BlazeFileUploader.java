@@ -99,6 +99,7 @@ public class BlazeFileUploader {
 
                         UploadResponse uploadResponse = new UploadResponse();
 
+                        if(uploadingListener!=null)
                         uploadingListener.onUploadFinished(uploadResponse ,true);
                     }else{
                         uploadMultiImages(file);

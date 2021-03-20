@@ -26,6 +26,7 @@ import com.assembliers.androidbackblazehelper.FileTypes;
 import com.assembliers.androidbackblazehelper.client.BlazeClient;
 import com.assembliers.androidbackblazehelper.filedownloader.BlazeFileDownloader;
 import com.assembliers.androidbackblazehelper.filedownloader.DownloadListener;
+import com.assembliers.androidbackblazehelper.filedownloader.MultiDownload;
 import com.assembliers.androidbackblazehelper.fileuploader.BlazeFileUploader;
 import com.assembliers.androidbackblazehelper.fileuploader.MultiFile;
 import com.assembliers.androidbackblazehelper.fileuploader.UploadListener;
@@ -33,6 +34,7 @@ import com.assembliers.androidbackblazehelper.upload_models.UploadResponse;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.File;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
@@ -49,10 +51,15 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         if (checkPermission()) {
-            BlazeClient client = new BlazeClient(this, "d3919b687db0", "000c9a1d6d8ccd1889f38704c8cd240ec707fc274d");
+            BlazeClient client = new BlazeClient(this, "d3919b687db0", "00051f10b14931869e7380c24dd8acf5cb21db8fa3");
 
             BlazeFileDownloader blazeFileDownloader = new BlazeFileDownloader(client);
-            blazeFileDownloader.startDownloading("hkjhkjloijhk", "Beavis-1.png");
+
+            ArrayList<MultiDownload> arrayList = new ArrayList<>();
+            arrayList.add(new MultiDownload("Beavis-1.png"));
+            arrayList.add(new MultiDownload("fee4bf59-0eda-498f-abbd-49088405ff20.jpeg"));
+
+            blazeFileDownloader.startDownloadingMultipleFiles("hkjhkjloijhk", arrayList);
 
 
             blazeFileDownloader.setDownloadListener(new DownloadListener() {
@@ -73,6 +80,7 @@ public class MainActivity extends AppCompatActivity {
 
                 @Override
                 public void onUploadFailed(Exception e) {
+                    Log.v("Downloading", e.getMessage());
 
                 }
             });
