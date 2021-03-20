@@ -33,7 +33,11 @@ import com.assembliers.androidbackblazehelper.fileuploader.UploadListener;
 import com.assembliers.androidbackblazehelper.upload_models.UploadResponse;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
@@ -50,66 +54,66 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if (checkPermission()) {
-            BlazeClient client = new BlazeClient(this, "d3919b687db0", "00051f10b14931869e7380c24dd8acf5cb21db8fa3");
-
-            BlazeFileDownloader blazeFileDownloader = new BlazeFileDownloader(client);
-
-            ArrayList<MultiDownload> arrayList = new ArrayList<>();
-            arrayList.add(new MultiDownload("Beavis-1.png"));
-            arrayList.add(new MultiDownload("fee4bf59-0eda-498f-abbd-49088405ff20.jpeg"));
-
-            blazeFileDownloader.startDownloadingMultipleFiles("hkjhkjloijhk", arrayList);
-
-
-            blazeFileDownloader.setDownloadListener(new DownloadListener() {
-                @Override
-                public void onDownloadStart() {
-
-                }
-
-                @Override
-                public void onDownloadProgress(int percentage, long progress, long total) {
-                    Log.v("Downloading", percentage + "   " + progress + "  " + total);
-                }
-
-                @Override
-                public void onDownloadFinish(boolean allFilesDownloaded) {
-                    Log.v("looooool", allFilesDownloaded+"");
-
-                }
-
-                @Override
-                public void onUploadFailed(Exception e) {
-                    Log.v("Downloading", e.getMessage());
-
-                }
-            });
-        } else {
-            requestPermission();
-        }
-
-
+//        if (checkPermission()) {
+//            BlazeClient client = new BlazeClient(this, "d3919b687db0", "00051f10b14931869e7380c24dd8acf5cb21db8fa3");
 //
-//        if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
-//                != PackageManager.PERMISSION_GRANTED ||ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)
-//                != PackageManager.PERMISSION_GRANTED ){
-//            ActivityCompat.requestPermissions(
-//                    this,
-//                    PERMISSIONS_STORAGE,
-//                    REQUEST_EXTERNAL_STORAGE
-//            );
-//        }else{
-//            Intent intent ;
-//            intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
-//            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
-//            intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+//            BlazeFileDownloader blazeFileDownloader = new BlazeFileDownloader(client);
 //
-//            intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
-//            intent.setType("image/*");
-//            intent.setAction(Intent.ACTION_GET_CONTENT);
-//            startActivityForResult(Intent.createChooser(intent,"Select Picture"), 1);
+//            ArrayList<MultiDownload> arrayList = new ArrayList<>();
+//            arrayList.add(new MultiDownload("Beavis-1.png"));
+//            arrayList.add(new MultiDownload("fee4bf59-0eda-498f-abbd-49088405ff20.jpeg"));
+//
+//            blazeFileDownloader.startDownloadingMultipleFiles("hkjhkjloijhk", arrayList);
+//
+//
+//            blazeFileDownloader.setDownloadListener(new DownloadListener() {
+//                @Override
+//                public void onDownloadStart() {
+//
+//                }
+//
+//                @Override
+//                public void onDownloadProgress(int percentage, long progress, long total) {
+//                    Log.v("Downloading", percentage + "   " + progress + "  " + total);
+//                }
+//
+//                @Override
+//                public void onDownloadFinish(boolean allFilesDownloaded) {
+//                    Log.v("looooool", allFilesDownloaded+"");
+//
+//                }
+//
+//                @Override
+//                public void onUploadFailed(Exception e) {
+//                    Log.v("Downloading", e.getMessage());
+//
+//                }
+//            });
+//        } else {
+//            requestPermission();
 //        }
+
+
+
+        if(ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED ||ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED ){
+            ActivityCompat.requestPermissions(
+                    this,
+                    PERMISSIONS_STORAGE,
+                    REQUEST_EXTERNAL_STORAGE
+            );
+        }else{
+            Intent intent ;
+            intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+            intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+
+            intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
+            intent.setType("image/*");
+            intent.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(Intent.createChooser(intent,"Select Picture"), 1);
+        }
     }
 
 
@@ -131,13 +135,23 @@ public class MainActivity extends AppCompatActivity {
         ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 4);
 
     }
+    public byte[] getBytes(InputStream inputStream) throws IOException {
+        ByteArrayOutputStream byteBuffer = new ByteArrayOutputStream();
+        int bufferSize = 1024;
+        byte[] buffer = new byte[bufferSize];
 
+        int len = 0;
+        while ((len = inputStream.read(buffer)) != -1) {
+            byteBuffer.write(buffer, 0, len);
+        }
+        return byteBuffer.toByteArray();
+    }
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         ArrayList<MultiFile> arrayList = new ArrayList<>();
-        BlazeClient client = new BlazeClient(this, "d3919b687db0", "000c9a1d6d8ccd1889f38704c8cd240ec707fc274d");
+        BlazeClient client = new BlazeClient(this, "d3919b687db0", "00051f10b14931869e7380c24dd8acf5cb21db8fa3");
         BlazeFileUploader blazeFileUploader =
                 new BlazeFileUploader(client, "1df369d1b94b3698778d0b10");
 
@@ -149,10 +163,21 @@ public class MainActivity extends AppCompatActivity {
                     for (int i = 0; i < count; i++) {
                         MultiFile multiFile = new MultiFile();
                         Uri imageUri = data.getClipData().getItemAt(i).getUri();
+                        InputStream iStream = null;
 
-                        multiFile.init(imageUri, new File(imageUri.getPath()).getAbsolutePath(), FileTypes.IMAGE_TYPE);
+                        try {
+                            iStream = getContentResolver().openInputStream(imageUri);
+                            byte[] inputData = getBytes(iStream);
+                            multiFile.init(inputData, new File(imageUri.getPath()).getAbsolutePath(), FileTypes.IMAGE_TYPE);
 
-                        arrayList.add(multiFile);
+                            arrayList.add(multiFile);
+                        } catch (FileNotFoundException e) {
+                            e.printStackTrace();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+
+
 
                         //getImageFilePath(imageUri);
                     }
@@ -164,7 +189,18 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                 } else {
-                    blazeFileUploader.startUploading(data.getData(), "obaida");
+                    InputStream iStream = null;
+                    try {
+                        iStream = getContentResolver().openInputStream(data.getData());
+                        byte[] inputData = getBytes(iStream);
+                        blazeFileUploader.startUploading(data.getData(), "obaidauri.png");
+
+
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
                 }
 
                 blazeFileUploader.setOnUploadingListener(new UploadListener() {

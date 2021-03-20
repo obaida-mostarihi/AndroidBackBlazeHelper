@@ -14,6 +14,7 @@ import android.content.Context;
 import android.net.Uri;
 import android.util.Log;
 
+import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.lang.ref.WeakReference;
@@ -35,11 +36,17 @@ public class UploadProgressRequestBody extends RequestBody {
         //Content uri for the file
         public Uri contentUri;
 
+        public byte[] fileBytes;
         // File size in bytes
         public long contentLength;
 
         public UploadInfo(Uri contentUri, long contentLength) {
             this.contentUri = contentUri;
+            this.contentLength = contentLength;
+        }
+
+        public UploadInfo(byte[] fileBytes, long contentLength) {
+            this.fileBytes = fileBytes;
             this.contentLength = contentLength;
         }
     }
@@ -99,7 +106,11 @@ public class UploadProgressRequestBody extends RequestBody {
     private InputStream in() throws IOException {
         InputStream stream = null;
         try {
+            if(mUploadInfo.contentUri!=null)
             stream = getContentResolver().openInputStream(mUploadInfo.contentUri);
+            else
+                stream = new ByteArrayInputStream(mUploadInfo.fileBytes);
+
         } catch (Exception ex) {
             Log.e(LOG_TAG, "Error getting input stream for upload", ex);
         }

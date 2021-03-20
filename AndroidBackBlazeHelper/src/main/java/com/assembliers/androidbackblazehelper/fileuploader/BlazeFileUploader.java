@@ -65,14 +65,13 @@ public class BlazeFileUploader {
     }
 
 
-    public void startUploadingMultipleFiles(ArrayList<MultiFile> files)  {
+    public void startUploadingMultipleFiles(ArrayList<MultiFile> files) {
 
         this.files = files;
         isMultiUpload = true;
 
 
-
-            try {
+        try {
             uploadMultiImages(new ArrayList<>());
         } catch (IOException e) {
             e.printStackTrace();
@@ -85,34 +84,58 @@ public class BlazeFileUploader {
         if (!isAuthed) {
 
 
-            getClientData(fileModel.getFileUri(), fileModel.getFileName(),fileModel.getContentType());
-        }else{
+            if (fileModel.getFileUri() != null)
+                getClientData(fileModel.getFileUri(), fileModel.getFileName(), fileModel.getContentType());
+            else
+                getClientData(fileModel.getFileBytes(), fileModel.getFileName(), fileModel.getContentType());
 
+        } else {
+            byte[] inputData =null;
+            if (fileModel.getFileUri() != null){
 
-        InputStream iStream = context.getContentResolver().openInputStream(fileModel.getFileUri());
-        byte[] inputData = getBytes(iStream);
-        uploadFile(fileModel.getFileUri(), fileModel.getFileName(),
-                inputData, fileModel.getContentType(), () -> {
+                InputStream iStream = context.getContentResolver().openInputStream(fileModel.getFileUri());
+          inputData = getBytes(iStream);
+                uploadFile(fileModel.getFileUri(), fileModel.getFileName(),
+                        inputData, fileModel.getContentType(), () -> {
 
-                    file.add(fileModel);
-                    if (file.size() == files.size()) {
+                            file.add(fileModel);
+                            if (file.size() == files.size()) {
 
-                        UploadResponse uploadResponse = new UploadResponse();
+                                UploadResponse uploadResponse = new UploadResponse();
 
-                        if(uploadingListener!=null)
-                        uploadingListener.onUploadFinished(uploadResponse ,true);
-                    }else{
-                        uploadMultiImages(file);
-                    }
+                                if (uploadingListener != null)
+                                    uploadingListener.onUploadFinished(uploadResponse, true);
+                            } else {
+                                uploadMultiImages(file);
+                            }
 
-                    return null;
-                });
+                            return null;
+                        });
+            }else{
+                uploadFile(fileModel.getFileBytes(), fileModel.getFileName(), fileModel.getContentType(), () -> {
+
+                            file.add(fileModel);
+                            if (file.size() == files.size()) {
+
+                                UploadResponse uploadResponse = new UploadResponse();
+
+                                if (uploadingListener != null)
+                                    uploadingListener.onUploadFinished(uploadResponse, true);
+                            } else {
+                                uploadMultiImages(file);
+                            }
+
+                            return null;
+                        });
+            }
+
 
         }
     }
 
 
     public void startUploading(Uri fileUri, String fileName, String contentType) {
+        this.contentType = contentType;
         isMultiUpload = false;
         try {
 
@@ -122,19 +145,37 @@ public class BlazeFileUploader {
                 uploadingListener.onUploadStarted();
 
 
-            if (!isAuthed) {
+            checkIfAuthed(fileUri, fileName, inputData);
 
-                getClientData(fileUri, fileName, contentType);
-            } else {
-
-
-                uploadFile(fileUri, fileName, inputData, contentType, null);
-
-
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+
+    public void startUploading(byte[] fileBytes, String fileName, String contentType) {
+        this.contentType = contentType;
+        isMultiUpload = false;
+
+
+        if (uploadingListener != null)
+            uploadingListener.onUploadStarted();
+
+
+        checkIfAuthed(fileBytes, fileName);
+
+    }
+
+    public void startUploading(byte[] fileBytes, String fileName) {
+        isMultiUpload = false;
+
+
+        if (uploadingListener != null)
+            uploadingListener.onUploadStarted();
+
+
+        checkIfAuthed(fileBytes, fileName);
+
     }
 
     public void startUploading(Uri fileUri, String fileName) {
@@ -147,18 +188,36 @@ public class BlazeFileUploader {
                 uploadingListener.onUploadStarted();
 
 
-            if (!isAuthed) {
+            checkIfAuthed(fileUri, fileName, inputData);
 
-                getClientData(fileUri, fileName, contentType);
-            } else {
-
-
-                uploadFile(fileUri, fileName, inputData, "", null);
-
-
-            }
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void checkIfAuthed(byte[] filebytes, String fileName) {
+        if (!isAuthed) {
+
+            getClientData(filebytes, fileName, contentType);
+        } else {
+
+
+            uploadFile(filebytes, fileName, contentType, null);
+
+
+        }
+    }
+
+    private void checkIfAuthed(Uri fileUri, String fileName, byte[] inputData) {
+        if (!isAuthed) {
+
+            getClientData(fileUri, fileName, contentType);
+        } else {
+
+
+            uploadFile(fileUri, fileName, inputData, contentType, null);
+
+
         }
     }
 
@@ -203,8 +262,8 @@ public class BlazeFileUploader {
             public void onResponse(Call<UploadResponse> call, Response<UploadResponse> response) {
 
 
-                if (uploadingListener != null){
-                    uploadingListener.onUploadFinished(response.body() , !isMultiUpload);
+                if (uploadingListener != null) {
+                    uploadingListener.onUploadFinished(response.body(), !isMultiUpload);
 
 
                 }
@@ -228,6 +287,109 @@ public class BlazeFileUploader {
 
     }
 
+    private void uploadFile(byte[] fileBytes, String fileName, String contentType, Callable<Void> onFinish) {
+        URL url = null;
+        String path = null;
+        try {
+            url = new URL(uploadUrl);
+            path = url.getPath();
+            path = path.replaceFirst("/", "");
+
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
+
+
+        String baseUrl = url.getProtocol() + "://" + url.getHost();
+
+
+        UploadInterface uploadInterface = ApiClient.getClient(baseUrl).create(UploadInterface.class);
+
+        UploadProgressRequestBody requestBody = new UploadProgressRequestBody(
+                context,
+                new UploadProgressRequestBody.UploadInfo(fileBytes, fileBytes.length),
+                (progress, total) -> {
+
+
+                    int percentage = (int) ((progress * 100.0f) / total);
+
+                    if (uploadingListener != null)
+                        uploadingListener.onUploadProgress(percentage, progress, total);
+
+                }
+        );
+        requestBody.setContentType(contentType);
+
+// Upload
+        Call<UploadResponse> call = uploadInterface.uploadFile(path, requestBody, uploadAuthorizationToken,
+                SHAsum(fileBytes), fileName);
+        call.enqueue(new Callback<UploadResponse>() {
+            @Override
+            public void onResponse(Call<UploadResponse> call, Response<UploadResponse> response) {
+
+
+                if (uploadingListener != null) {
+                    uploadingListener.onUploadFinished(response.body(), !isMultiUpload);
+
+
+                }
+                if (onFinish != null) {
+                    try {
+                        onFinish.call();
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<UploadResponse> call, Throwable t) {
+                if (uploadingListener != null)
+                    uploadingListener.onUploadFailed((Exception) t);
+
+            }
+        });
+
+    }
+
+    private void getClientData(byte[] fileBytes, String fileName, String contentType) {
+
+        blazeClient.setClientListener(new ClientListener() {
+            @Override
+            public void onConnectionStarted() {
+
+            }
+
+            @Override
+            public void onRetrievingData(ClientModel data, JSONObject response) {
+
+                accountAuthorizationToken = data.getAuthorizationToken();
+                apiUrl = data.getApiUrl();
+                UploadAuth uploadAuth = new UploadAuth(context, bucketId, accountAuthorizationToken, apiUrl);
+
+                uploadAuth.getUploadAuthData();
+                uploadAuth.setUploadAuthListener(uploadAuthModel -> {
+                    uploadUrl = uploadAuthModel.getUploadUrl();
+                    uploadAuthorizationToken = uploadAuthModel.getAuthorizationToken();
+                    isAuthed = true;
+                    if (!isMultiUpload)
+                        startUploading(fileBytes, fileName, contentType);
+                    else
+                        startUploadingMultipleFiles(files);
+                });
+
+            }
+
+            @Override
+            public void onFailure(Exception e) {
+                if (uploadingListener != null)
+                    uploadingListener.onUploadFailed(e);
+            }
+        });
+    }
+
+
     private void getClientData(Uri fileUri, String fileName, String contentType) {
 
         blazeClient.setClientListener(new ClientListener() {
@@ -248,10 +410,10 @@ public class BlazeFileUploader {
                     uploadUrl = uploadAuthModel.getUploadUrl();
                     uploadAuthorizationToken = uploadAuthModel.getAuthorizationToken();
                     isAuthed = true;
-                    if(!isMultiUpload)
-                    startUploading(fileUri, fileName, contentType);
+                    if (!isMultiUpload)
+                        startUploading(fileUri, fileName, contentType);
                     else
-                    startUploadingMultipleFiles(files);
+                        startUploadingMultipleFiles(files);
                 });
 
             }

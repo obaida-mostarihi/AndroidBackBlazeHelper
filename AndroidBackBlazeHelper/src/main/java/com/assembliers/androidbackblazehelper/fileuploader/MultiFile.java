@@ -14,6 +14,7 @@ import android.net.Uri;
 public class MultiFile {
 
     public Uri fileUri;
+    public byte[] fileBytes;
     public String fileName;
     public String contentType;
     public MultiFile() {
@@ -23,6 +24,20 @@ public class MultiFile {
         this.fileUri = fileUri;
         this.fileName = fileName;
         this.contentType = contentType;
+    }
+
+    public MultiFile(byte[] fileBytes, String fileName, String contentType) {
+        this.fileBytes = fileBytes;
+        this.fileName = fileName;
+        this.contentType = contentType;
+    }
+
+    public byte[] getFileBytes() {
+        return fileBytes;
+    }
+
+    public void setFileBytes(byte[] fileBytes) {
+        this.fileBytes = fileBytes;
     }
 
     public Uri getFileUri() {
@@ -55,5 +70,9 @@ public class MultiFile {
         this.fileName = fileName;
         this.contentType = contentType;
     }
-
+    public void init(byte[] fileBytes, String fileName, String contentType) {
+        this.fileBytes = fileBytes;
+        this.fileName = fileName;
+        this.contentType = contentType;
+    }
 }
