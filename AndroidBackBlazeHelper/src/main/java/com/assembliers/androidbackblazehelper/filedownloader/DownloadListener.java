@@ -12,8 +12,8 @@ package com.assembliers.androidbackblazehelper.filedownloader;
 public interface DownloadListener {
 
     void onDownloadStart();
-    void onDownloadProgress(int percentage, long progress, long total);
-    void onDownloadFinish();
+    void onDownloadProgress(int percentage, long progress, long total );
+    void onDownloadFinish(boolean allDownloaded);
     void onUploadFailed(Exception e);
 
 

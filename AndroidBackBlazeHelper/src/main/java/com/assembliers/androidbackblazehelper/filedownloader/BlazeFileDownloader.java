@@ -262,14 +262,18 @@ public class BlazeFileDownloader {
                 if(isMultiDownload) {
                     downloadedFiles.add(multiDownload);
                     if (downloadedFiles.size() == files.size()) {
-
+                        if (downloadListener != null)
+                            downloadListener.onDownloadFinish(true);
                     }else{
+                        if (downloadListener != null)
+                            downloadListener.onDownloadFinish(false);
                         downloadMultipleFiles();
 
                     }
+                }else {
+                    if (downloadListener != null)
+                        downloadListener.onDownloadFinish(true);
                 }
-                if (downloadListener != null)
-                    downloadListener.onDownloadFinish();
             }
 
             if (progress[0].second > 0) {
@@ -281,7 +285,6 @@ public class BlazeFileDownloader {
             }
 
             if (progress[0].first == -1) {
-                Log.v("Downloading", "Progress failed");
 
                 if (downloadListener != null)
                     downloadListener.onUploadFailed(new Exception("Progress failed"));
@@ -313,7 +316,6 @@ public class BlazeFileDownloader {
                     byte data[] = new byte[4096];
                     int count;
                     fileSize = body.contentLength();
-                    Log.d(TAG, "File Size=" + fileSize);
                     while ((count = inputStream.read(data)) != -1) {
                         outputStream.write(data, 0, count);
                         progress += count;
@@ -325,7 +327,6 @@ public class BlazeFileDownloader {
 
                     outputStream.flush();
 
-                    Log.d(TAG, destinationFile.getParent());
                     Pair<Integer, Long> pairs = new Pair<>(100, 100L);
                     downloadFileTask.doProgress(pairs);
                     return;

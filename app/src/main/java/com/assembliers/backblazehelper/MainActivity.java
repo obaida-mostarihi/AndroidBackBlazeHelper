@@ -74,7 +74,8 @@ public class MainActivity extends AppCompatActivity {
                 }
 
                 @Override
-                public void onDownloadFinish() {
+                public void onDownloadFinish(boolean allFilesDownloaded) {
+                    Log.v("looooool", allFilesDownloaded+"");
 
                 }
 

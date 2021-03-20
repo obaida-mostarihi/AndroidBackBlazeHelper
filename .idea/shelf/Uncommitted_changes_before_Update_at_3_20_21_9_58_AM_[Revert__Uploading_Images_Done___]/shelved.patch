@@ -1,0 +1,119 @@
+Index: .gitignore
+===================================================================
+--- .gitignore	(revision 522b3208cec3cbe6ed7ba8fb42512a28fd21aedc)
++++ .gitignore	(revision 522b3208cec3cbe6ed7ba8fb42512a28fd21aedc)
+@@ -1,15 +0,0 @@
+-*.iml
+-.gradle
+-/local.properties
+-/.idea/caches
+-/.idea/libraries
+-/.idea/modules.xml
+-/.idea/workspace.xml
+-/.idea/navEditor.xml
+-/.idea/assetWizardSettings.xml
+-.DS_Store
+-/build
+-/captures
+-.externalNativeBuild
+-.cxx
+-local.properties
+Index: .idea/scopes/Yoron.xml
+===================================================================
+--- .idea/scopes/Yoron.xml	(revision 522b3208cec3cbe6ed7ba8fb42512a28fd21aedc)
++++ .idea/scopes/Yoron.xml	(revision 522b3208cec3cbe6ed7ba8fb42512a28fd21aedc)
+@@ -1,3 +0,0 @@
+-<component name="DependencyValidationManager">
+-  <scope name="Yoron" pattern="" />
+-</component>
+\ No newline at end of file
+Index: .idea/.gitignore
+===================================================================
+--- .idea/.gitignore	(revision 522b3208cec3cbe6ed7ba8fb42512a28fd21aedc)
++++ .idea/.gitignore	(revision 522b3208cec3cbe6ed7ba8fb42512a28fd21aedc)
+@@ -1,3 +0,0 @@
+-# Default ignored files
+-/shelf/
+-/workspace.xml
+Index: .idea/dictionaries/yoron.xml
+===================================================================
+--- .idea/dictionaries/yoron.xml	(revision 522b3208cec3cbe6ed7ba8fb42512a28fd21aedc)
++++ .idea/dictionaries/yoron.xml	(revision 522b3208cec3cbe6ed7ba8fb42512a28fd21aedc)
+@@ -1,8 +0,0 @@
+-<component name="ProjectDictionaryState">
+-  <dictionary name="yoron">
+-    <words>
+-      <w>mostarihi</w>
+-      <w>obaida</w>
+-    </words>
+-  </dictionary>
+-</component>
+\ No newline at end of file
+Index: .idea/copyright/profiles_settings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"CopyrightManager\">\n  <settings>\n    <module2copyright>\n      <element module=\"All\" copyright=\"Obaida Al Mostarihi\" />\n    </module2copyright>\n  </settings>\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/copyright/profiles_settings.xml	(revision 522b3208cec3cbe6ed7ba8fb42512a28fd21aedc)
++++ .idea/copyright/profiles_settings.xml	(date 1616141467000)
+@@ -1,5 +1,5 @@
+ <component name="CopyrightManager">
+-  <settings>
++  <settings default="Obaida Al Mostarihi">
+     <module2copyright>
+       <element module="All" copyright="Obaida Al Mostarihi" />
+     </module2copyright>
+Index: .idea/copyright/Obaida_Al_Mostarihi.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><component name=\"CopyrightManager\">\n  <copyright>\n    <option name=\"notice\" value=\"Created by Obaida Al Mostarihi  &amp;#36;today&#10;Copyright (c) &amp;#36;today.year . All rights reserved.&#10;Licensed under the Apache License, Version 2.0 (the &quot;LICENSE&quot;);&#10;Last modified:  &amp;#36;file.lastModified&#10;Contact: Email : obaidaalmostarihi@gmail.com&#10;Package: &amp;#36;module.name / &amp;#36;project.name \" />\n    <option name=\"myName\" value=\"Obaida Al Mostarihi\" />\n  </copyright>\n</component>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/copyright/Obaida_Al_Mostarihi.xml	(revision 522b3208cec3cbe6ed7ba8fb42512a28fd21aedc)
++++ .idea/copyright/Obaida_Al_Mostarihi.xml	(date 1616141467000)
+@@ -1,6 +1,6 @@
+ <component name="CopyrightManager">
+   <copyright>
+-    <option name="notice" value="Created by Obaida Al Mostarihi  &amp;#36;today&#10;Copyright (c) &amp;#36;today.year . All rights reserved.&#10;Licensed under the Apache License, Version 2.0 (the &quot;LICENSE&quot;);&#10;Last modified:  &amp;#36;file.lastModified&#10;Contact: Email : obaidaalmostarihi@gmail.com&#10;Package: &amp;#36;module.name / &amp;#36;project.name " />
++    <option name="notice" value="Copyright (c) &amp;#36;today.year . All rights reserved.&#10;Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);&#10;Last modified:  &amp;#36;file.lastModified&#10;Contact: Email : obaidaalmostarihi@gmail.com&#10;Package: &amp;#36;module.name / &amp;#36;project.name &#10;" />
+     <option name="myName" value="Obaida Al Mostarihi" />
+   </copyright>
+ </component>
+\ No newline at end of file
+Index: .idea/gradle.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"GradleSettings\">\n    <option name=\"linkedExternalProjectsSettings\">\n      <GradleProjectSettings>\n        <option name=\"testRunner\" value=\"PLATFORM\" />\n        <option name=\"distributionType\" value=\"DEFAULT_WRAPPED\" />\n        <option name=\"externalProjectPath\" value=\"$PROJECT_DIR$\" />\n        <option name=\"gradleJvm\" value=\"1.8\" />\n        <option name=\"modules\">\n          <set>\n            <option value=\"$PROJECT_DIR$\" />\n            <option value=\"$PROJECT_DIR$/AndroidBackBlazeHelper\" />\n            <option value=\"$PROJECT_DIR$/app\" />\n          </set>\n        </option>\n        <option name=\"resolveModulePerSourceSet\" value=\"false\" />\n        <option name=\"useQualifiedModuleNames\" value=\"true\" />\n      </GradleProjectSettings>\n    </option>\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/gradle.xml	(revision 522b3208cec3cbe6ed7ba8fb42512a28fd21aedc)
++++ .idea/gradle.xml	(date 1616141467000)
+@@ -1,5 +1,6 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
++  <component name="GradleMigrationSettings" migrationVersion="1" />
+   <component name="GradleSettings">
+     <option name="linkedExternalProjectsSettings">
+       <GradleProjectSettings>
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<project version=\"4\">\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_1_8\" default=\"true\" project-jdk-name=\"1.8\" project-jdk-type=\"JavaSDK\">\n    <output url=\"file://$PROJECT_DIR$/build/classes\" />\n  </component>\n  <component name=\"ProjectType\">\n    <option name=\"id\" value=\"Android\" />\n  </component>\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- .idea/misc.xml	(revision 522b3208cec3cbe6ed7ba8fb42512a28fd21aedc)
++++ .idea/misc.xml	(date 1616141467000)
+@@ -3,7 +3,4 @@
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+     <output url="file://$PROJECT_DIR$/build/classes" />
+   </component>
+-  <component name="ProjectType">
+-    <option name="id" value="Android" />
+-  </component>
+ </project>
+\ No newline at end of file
