@@ -39,7 +39,7 @@ allprojects {
 dependencies {
     ...
 
-    implementation 'com.github.yorondahacker:AndroidBackBlazeHelper:1.0.4'
+    implementation 'com.github.yorondahacker:AndroidBackBlazeHelper:1.0.5'
 
     ...
 }
