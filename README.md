@@ -178,7 +178,7 @@ To listen to the downloading progress.
                 }
 
                 @Override
-                public void onDownloadFinish() {
+                public void onDownloadFinish(boolean allFilesDownloaded) {
 
                 }
 
