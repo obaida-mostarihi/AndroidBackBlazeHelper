@@ -9,6 +9,7 @@
 
 package com.assembliers.androidbackblazehelper.fileuploader;
 
+
 import com.assembliers.androidbackblazehelper.upload_models.UploadResponse;
 
 public interface UploadListener {

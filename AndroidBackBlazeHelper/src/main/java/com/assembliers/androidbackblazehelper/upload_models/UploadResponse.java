@@ -37,9 +37,7 @@ public class UploadResponse {
     @SerializedName("contentType")
     @Expose
     private String contentType;
-    @SerializedName("fileInfo")
-    @Expose
-    private String fileInfo;
+
     @SerializedName("serverSideEncryption")
     @Expose
     private ServerSideEncryption serverSideEncryption;
@@ -100,13 +98,6 @@ public class UploadResponse {
         this.contentType = contentType;
     }
 
-    public String getFileInfo() {
-        return fileInfo;
-    }
-
-    public void setFileInfo(String fileInfo) {
-        this.fileInfo = fileInfo;
-    }
 
     public ServerSideEncryption getServerSideEncryption() {
         return serverSideEncryption;
