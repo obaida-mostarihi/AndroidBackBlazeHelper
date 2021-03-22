@@ -9,7 +9,7 @@
 
 package com.assembliers.androidbackblazehelper.upload_models;
 
-import android.telephony.mbms.FileInfo;
+
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -39,7 +39,7 @@ public class UploadResponse {
     private String contentType;
     @SerializedName("fileInfo")
     @Expose
-    private FileInfo fileInfo;
+    private String fileInfo;
     @SerializedName("serverSideEncryption")
     @Expose
     private ServerSideEncryption serverSideEncryption;
@@ -100,11 +100,11 @@ public class UploadResponse {
         this.contentType = contentType;
     }
 
-    public FileInfo getFileInfo() {
+    public String getFileInfo() {
         return fileInfo;
     }
 
-    public void setFileInfo(FileInfo fileInfo) {
+    public void setFileInfo(String fileInfo) {
         this.fileInfo = fileInfo;
     }
 

@@ -50,50 +50,26 @@ public class MainActivity extends AppCompatActivity {
             Manifest.permission.READ_EXTERNAL_STORAGE,
             Manifest.permission.WRITE_EXTERNAL_STORAGE
     };
+    public static final String BLAZE_APP_KEY_ID = "lkhjkln";
+    public static final String BLAZE_APP_KEY = "kjhkj";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-//        if (checkPermission()) {
-//            BlazeClient client = new BlazeClient(this, "d3919b687db0", "00051f10b14931869e7380c24dd8acf5cb21db8fa3");
-//
-//            BlazeFileDownloader blazeFileDownloader = new BlazeFileDownloader(client);
-//
-//            ArrayList<MultiDownload> arrayList = new ArrayList<>();
-//            arrayList.add(new MultiDownload("Beavis-1.png"));
-//            arrayList.add(new MultiDownload("fee4bf59-0eda-498f-abbd-49088405ff20.jpeg"));
-//
-//            blazeFileDownloader.startDownloadingMultipleFiles("hkjhkjloijhk", arrayList);
-//
-//
-//            blazeFileDownloader.setDownloadListener(new DownloadListener() {
-//                @Override
-//                public void onDownloadStart() {
-//
-//                }
-//
-//                @Override
-//                public void onDownloadProgress(int percentage, long progress, long total) {
-//                    Log.v("Downloading", percentage + "   " + progress + "  " + total);
-//                }
-//
-//                @Override
-//                public void onDownloadFinish(boolean allFilesDownloaded) {
-//                    Log.v("looooool", allFilesDownloaded+"");
-//
-//                }
-//
-//                @Override
-//                public void onUploadFailed(Exception e) {
-//                    Log.v("Downloading", e.getMessage());
-//
-//                }
-//            });
-//        } else {
-//            requestPermission();
-//        }
+        client = new BlazeClient(this , BLAZE_APP_KEY_ID , BLAZE_APP_KEY);
+
+        Intent intent;
+        intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+        intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true);
+        intent.addFlags(Intent.FLAG_GRANT_PERSISTABLE_URI_PERMISSION);
+
+        intent.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.setType("image/*");
+      startActivityForResult(Intent.createChooser(intent,""), 10);
+
 
 
 
@@ -137,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<MultiFile> arrayList = new ArrayList<>();
 
 
-        if (requestCode == 1) {
+        if (requestCode == 10) {
             BlazeFileUploader blazeFileUploader =
                     new BlazeFileUploader(client, "");
             if (resultCode == Activity.RESULT_OK && data != null) {
@@ -151,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
                         try {
                             iStream = getContentResolver().openInputStream(imageUri);
                             byte[] inputData = getBytes(iStream);
-                            multiFile.init(inputData, new File(imageUri.getPath()).getAbsolutePath(), FileTypes.IMAGE_TYPE);
+                            multiFile.init(imageUri, new File(imageUri.getPath()).getAbsolutePath(), FileTypes.IMAGE_TYPE);
 
                             arrayList.add(multiFile);
                         } catch (FileNotFoundException e) {
